@@ -3,20 +3,7 @@
 ### Sobre Mim
 Sou um entusiasta de tecnologia com formação em **Defesa Cibernética** e **Análise e Desenvolvimento de Sistemas**. Tenho experiência em desenvolvimento Full Stack, segurança cibernética e automação, com habilidades em Python, JavaScript, Java, Bash e ferramentas de nuvem como AWS e Linode. Sou apaixonado por resolver problemas complexos e criar soluções praticas.
 
----
-
-## 🏆 Principais Projetos e Conquistas
-
-### **CTF NEXT FIAP, 2022 – 1º Lugar**
-- **Linguagens/Ferramentas:** Python, Bash, Burp Suite.
-- **Descrição:** Campeonato estilo "Capture The Flag" entre turmas de Defesa Cibernética da FIAP.
-
-### **Global Solution FIAP, 2021 – 2º Lugar**
-- **Linguagens/Ferramentas:** Python, Bash, Burp Suite.
-- **Descrição:** Participação em desafios de CTF envolvendo redes, reverse engineering e criptografia.
-
----
-
+--- 
 ## 🎓 Formação Acadêmica
 
 ### **FIAP:** Tecnólogo em Defesa Cibernética (Dez/2022)
