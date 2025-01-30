@@ -1,16 +1,65 @@
-## Hi there 👋
+# Olá, eu sou Victor! 👋
 
-<!--
-**VictorDG00/VictorDG00** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### Sobre Mim
+Sou um entusiasta de tecnologia com formação em **Defesa Cibernética** e **Análise e Desenvolvimento de Sistemas**. Tenho experiência em desenvolvimento Full Stack, segurança cibernética e automação, com habilidades em Python, JavaScript, Java, Bash e ferramentas de nuvem como AWS e Linode. Sou apaixonado por resolver problemas complexos e criar soluções praticas.
 
-Here are some ideas to get you started:
+---
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 🏆 Principais Projetos e Conquistas
+
+### **CTF NEXT FIAP, 2022 – 1º Lugar**
+- **Linguagens/Ferramentas:** Python, Bash, Burp Suite.
+- **Descrição:** Campeonato estilo "Capture The Flag" entre turmas de Defesa Cibernética da FIAP.
+
+### **Global Solution FIAP, 2021 – 2º Lugar**
+- **Linguagens/Ferramentas:** Python, Bash, Burp Suite.
+- **Descrição:** Participação em desafios de CTF envolvendo redes, reverse engineering e criptografia.
+
+---
+
+## 🎓 Formação Acadêmica
+
+### **FIAP:** Tecnólogo em Defesa Cibernética (Dez/2022)
+### **ENIAC:** Tecnólogo em Análise e Desenvolvimento de Sistemas (2020).
+
+---
+
+## 📜 Certificações
+
+- **AWS Cloud Practitioner**
+- **CyberOps – CISCO**
+- **Trybe – Desenvolvimento Full Stack**
+
+---
+
+## 🌐 Idiomas
+
+- **Português:** Nativo.
+- **Inglês:** Avançado.
+
+---
+
+## 💼 Experiência Profissional
+
+**Foundever:** Atendente Bilingue (Português/Inglês).
+**Dfense Security:** Analista de Desenvolvimento de Sistemas  
+**T-Systems Brasil:** Estágio em Segurança da Informação SOC N1  
+**Flipside:** Estágio em Tecnologia da Informação 
+**Stefanini:** Analista de Suporte de Tecnologia da Informação 
+
+---
+
+## 🌟 Voluntariado
+
+- **RoadSec 2021 e Mind The Sec 2021:** Moderação e interação com palestrantes e participantes.
+- **CryptoRave:** Moderação e interação com palestrantes e participantes.
+---
+
+## 📫 Como Me Encontrar
+
+- **LinkedIn:** [Victor D. Goncalves](https://www.linkedin.com/in/victord-goncalves/)
+- **E-mail:** [victord.goncalves@outlook.com](mailto:victord.goncalves@outlook.com)
+
+---
+
+✨ **Vamos construir algo incrível juntos!** ✨
