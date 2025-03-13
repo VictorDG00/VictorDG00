@@ -27,7 +27,7 @@ Sou um entusiasta de tecnologia com formação em **Defesa Cibernética** e **An
 
 ## 💼 Experiência Profissional
 
-**Foundever:** Atendente Bilingue (Português/Inglês).
+**Foundever:** Atendente Bilingue (Português/Inglês)
 **Dfense Security:** Analista de Desenvolvimento de Sistemas  
 **T-Systems Brasil:** Estágio em Segurança da Informação SOC N1  
 **Flipside:** Estágio em Tecnologia da Informação 
