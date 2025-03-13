@@ -47,5 +47,3 @@ Sou um entusiasta de tecnologia com formação em **Defesa Cibernética** e **An
 - **E-mail:** [victord.goncalves@outlook.com](mailto:victord.goncalves@outlook.com)
 
 ---
-
-✨ **Vamos construir algo incrível juntos!** ✨
