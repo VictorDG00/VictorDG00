@@ -15,7 +15,6 @@ Sou um entusiasta de tecnologia com formação em **Defesa Cibernética** e **An
 
 - **AWS Cloud Practitioner**
 - **CyberOps – CISCO**
-- **Trybe – Desenvolvimento Full Stack**
 
 ---
 
