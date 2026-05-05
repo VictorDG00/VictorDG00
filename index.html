@@ -269,6 +269,28 @@
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--accent); }
+  .project-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .status-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 3px 9px;
+    border-radius: 20px;
+    color: #f5c542;
+    background: rgba(245,197,66,0.08);
+    border: 1px solid rgba(245,197,66,0.3);
+  }
+  .commit-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+  }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -338,6 +360,10 @@
         <div class="project-info">
           <h3><a href="https://github.com/ForjaDosDias/WordAddin" target="_blank" style="color:inherit;text-decoration:none;">Luis Gama ↗</a></h3>
           <p>Add-in para Microsoft Word que analisa documentos jurídicos via LLM — com billing, autenticação e deploy automatizado.</p>
+          <div class="project-status">
+            <span class="status-tag">em produção</span>
+            <span class="commit-date" id="commit-luis-gama">carregando...</span>
+          </div>
         </div>
       </div>
       <div class="project-item">
@@ -345,6 +371,10 @@
         <div class="project-info">
           <h3><a href="https://github.com/Victordg00/Capataz" target="_blank" style="color:inherit;text-decoration:none;">Capataz ↗</a></h3>
           <p>Orquestrador multi-agente onde diferentes modelos de IA colaboram num pipeline de desenvolvimento com segurança integrada.</p>
+          <div class="project-status">
+            <span class="status-tag">em produção</span>
+            <span class="commit-date" id="commit-capataz">carregando...</span>
+          </div>
         </div>
       </div>
     </div>
@@ -376,4 +406,19 @@
 </div>
 
 
+<script>
+  async function fetchLastCommit(repo, elementId) {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}/commits?per_page=1`);
+      const data = await res.json();
+      const date = new Date(data[0].commit.author.date);
+      const formatted = date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+      document.getElementById(elementId).textContent = `último commit: ${formatted}`;
+    } catch {
+      document.getElementById(elementId).textContent = '';
+    }
+  }
+  fetchLastCommit('ForjaDosDias/WordAddin', 'commit-luis-gama');
+  fetchLastCommit('Victordg00/Capataz', 'commit-capataz');
+</script>
 </body></html>
