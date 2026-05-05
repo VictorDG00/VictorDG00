@@ -14,3 +14,4 @@ User-agent: Googlebot
 Allow: /
 
 Sitemap: https://victordg.dev.br/sitemap.xml
+LLMs: https://victordg.dev.br/llms.txt

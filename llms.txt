@@ -1,0 +1,57 @@
+# Victor Dias Gonçalves
+
+AI Engineer e DevSecOps baseado em São Paulo, SP.
+
+Site: https://victordg.dev.br
+Currículo: https://victordg.dev.br/cv
+LinkedIn: https://linkedin.com/in/victord-goncalves
+GitHub: https://github.com/Victordg00
+Email: victord.goncalves@outlook.com
+WhatsApp: https://wa.me/5511911993949
+
+## Sobre
+
+Engenheiro de IA com background em segurança da informação. Constrói sistemas com LLMs que entregam valor real com segurança e compliance integrados desde a arquitetura. Experiência prática em ambientes financeiros regulados. Disponível para consultoria de desenvolvimento com IA.
+
+## Projetos em Produção
+
+### Luis Gama
+Add-in para Microsoft Word que analisa documentos jurídicos via LLM.
+Repositório: https://github.com/ForjaDosDias/WordAddin
+Stack: Python, FastAPI, DeepSeek API, JavaScript, Docker, Fly.io, GitHub Actions
+Destaques: Provider Pattern com fallback entre LLMs, billing SaaS (Trial/Paid/Admin), LGPD compliance by design (hash SHA-256, sem persistência de conteúdo), CI/CD completo.
+
+### Capataz
+Orquestrador multi-agente para pipeline DevSecOps autônomo.
+Repositório: https://github.com/Victordg00/Capataz
+Stack: Python, LangGraph, FastAPI, Docker
+Destaques: Agentes com papéis específicos (Arquiteto/Operário/Inspetor), SAST integrado antes de qualquer push, estado persistente via LangGraph, audit log automático.
+
+## Stack Principal
+
+IA & LLMs: LangGraph, LangChain, RAG, Multi-agent systems, Provider Pattern, DeepSeek API, OpenAI API
+Backend: Python, FastAPI, JavaScript, Node.js, REST APIs, Shell Script
+DevSecOps: Docker, GitHub Actions, CI/CD, Shift left security, SAST, CyberArk, Netskope
+Cloud: AWS, GCP, Fly.io, Digital Ocean
+Banco de dados: PostgreSQL, SQLite, SQLAlchemy, Prisma, ChromaDB
+
+## Experiência
+
+Dfense Security — Analista de Desenvolvimento de Sistemas (Dez/2022 – Dez/2023)
+Automação com Python e Shell Script em ambientes enterprise. Integração de plataformas de segurança via APIs. Clientes: Bradesco, Cielo.
+
+T-Systems Brasil — Estagiário SOC N1 (Abr/2022 – Nov/2022)
+Monitoramento e resposta a incidentes. Assessments em AWS. Compliance LGPD.
+
+## Formação
+
+FIAP — Tecnólogo em Defesa Cibernética (2022). Bolsa Mérito.
+ENIAC — Tecnólogo em Análise e Desenvolvimento de Sistemas (2020).
+
+## Certificações
+
+AWS Cloud Practitioner (2022), CyberOps Associate Cisco (2022).
+
+## Idiomas
+
+Português nativo, Inglês avançado.
