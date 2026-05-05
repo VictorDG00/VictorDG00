@@ -241,6 +241,69 @@
     transition: color 0.2s;
   }
   .footer-links a:hover { color: var(--accent); }
+  .project-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+  .status-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 3px 9px;
+    border-radius: 20px;
+    border: 1px solid;
+  }
+  .status-active {
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-color: rgba(0,229,160,0.3);
+  }
+  .status-wip {
+    color: #f5a623;
+    background: rgba(245,166,35,0.08);
+    border-color: rgba(245,166,35,0.3);
+  }
+  .commit-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+  .action-bar {
+    display: flex;
+    gap: 10px;
+    margin: 32px 0 0;
+  }
+  .btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-mid);
+  }
+  .btn-action:hover { border-color: var(--accent); color: var(--accent); }
+  @media print {
+    .action-bar, header .back-link, .action-bar { display: none !important; }
+    body { background: #fff; color: #000; }
+    body::before { display: none; }
+    .container { max-width: 100%; padding: 0 16px; }
+    a { color: inherit; }
+    .skills-table td { background: #fff; }
+    .project-block, .exp-item, .edu-item { break-inside: avoid; }
+    .status-active { color: #16a34a; background: #f0fdf4; border-color: #bbf7d0; }
+    .status-wip { color: #b45309; background: #fffbeb; border-color: #fde68a; }
+  }
   @media (max-width: 600px) {
     .skills-table td:first-child { width: 110px; }
     footer { flex-direction: column; text-align: center; }
@@ -257,7 +320,11 @@
   <div class="cv-header">
     <h1>Victor Dias Gonçalves</h1>
     <div class="role">AI Engineer · DevSecOps</div>
-    <div class="meta">
+    <div class="action-bar">
+      <button class="btn-action" onclick="window.print()">🖨 Imprimir</button>
+      <button class="btn-action" onclick="downloadPdf()">⬇ Baixar PDF</button>
+    </div>
+    <div class="meta" style="margin-top:20px;">
       <span>São Paulo, SP</span>
       <a href="mailto:victordg0223@gmail.com">victordg0223@gmail.com</a>
       <a href="tel:+5511970599016">+55 11 9 7059-9016</a>
@@ -279,7 +346,11 @@
     <div class="section-label">Projetos com IA Generativa</div>
 
     <div class="project-block">
-      <div class="project-title"><a href="https://github.com/ForjaDosDias/WordAddin" target="_blank">Luis Gama ↗</a></div>
+      <div class="project-meta">
+        <div class="project-title" style="margin:0"><a href="https://github.com/ForjaDosDias/WordAddin" target="_blank">Luis Gama ↗</a></div>
+        <span class="status-tag status-active">em produção</span>
+        <span class="commit-date" id="commit-luis-gama">carregando...</span>
+      </div>
       <div class="project-stack">Python · FastAPI · DeepSeek API · JavaScript · Docker · Fly.io · GitHub Actions</div>
       <ul>
         <li>Sistema SaaS completo com Provider Pattern e fallback automático entre LLMs</li>
@@ -291,7 +362,11 @@
     </div>
 
     <div class="project-block">
-      <div class="project-title"><a href="https://github.com/Victordg00/Capataz" target="_blank">Capataz ↗</a></div>
+      <div class="project-meta">
+        <div class="project-title" style="margin:0"><a href="https://github.com/Victordg00/Capataz" target="_blank">Capataz ↗</a></div>
+        <span class="status-tag status-active">em produção</span>
+        <span class="commit-date" id="commit-capataz">carregando...</span>
+      </div>
       <div class="project-stack">Python · LangGraph · FastAPI · Docker</div>
       <ul>
         <li>Agentes com papéis específicos: Arquiteto planeja, Operário executa, Inspetor valida com SAST antes de qualquer push</li>
@@ -417,4 +492,26 @@
     </div>
   </footer>
 </div>
+<script>
+  async function fetchLastCommit(repo, elementId) {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${repo}/commits?per_page=1`);
+      const data = await res.json();
+      const date = new Date(data[0].commit.author.date);
+      const formatted = date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+      document.getElementById(elementId).textContent = `último commit: ${formatted}`;
+    } catch {
+      document.getElementById(elementId).textContent = '';
+    }
+  }
+  fetchLastCommit('ForjaDosDias/WordAddin', 'commit-luis-gama');
+  fetchLastCommit('Victordg00/Capataz', 'commit-capataz');
+
+  function downloadPdf() {
+    const original = document.title;
+    document.title = 'Victor-Goncalves-Curriculo';
+    window.print();
+    document.title = original;
+  }
+</script>
 </body></html>
