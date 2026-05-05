@@ -1,0 +1,407 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Victor Gonçalves | Currículo</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACdklEQVR4nO2WTUgUcRjGf+87GplrLoiHDgURFUZQBIlSipeiQKEPCupS1KFDdKqoQwchCrqGERFdtDoZRR7MNQoU7UukIII6FllUdijL/Nh5OsxqhLm7ysJ22AdemPn/Z555/u/nGCDyCM/nxwsCCgL+CwFFWT3lBuaQTP57P3DAUjcCM0iGoMwVbuS5D6T3gDuEIb6rDquuIjxzDU3O9EJwfC9aUgHjE9GpF5dCYoCwo3+aIx00qwUuQL5prVw98q0bhSGCINoz5OtXyH50Cj2U6UHKeuX16/7imM3SeyAZghth30u86zEc3QGJZ6AwygkBB7ZhH79iJy5HsQwc+z5K2PPiD0cGpFVIEERe2LFZPtIpX710es/iMflQu/zsofQcaSxzGYYhGKjzCbz/AkeaonUD21kH8RhqS0AQYPEYVlaClZdGsc8SmZVOeeH0fvmHW7J4TAbyRy3yexei63OH5a9bZc+vKmhvlhUXCbMceACimANq7YJFC7HGGli7HGrWQMttKFsEu+vRgmJYtQz1v0ITk6n+kB7ZCQgFgaOhYbjbBwe349uq4e1ndH8Qkkm05STW1g0jo+jm/dR7mRNwbq3YgEt30IaVEIbY+evo1zj6OYbefYLGWqzrKfr4NVX/2fW47LPWLIp370V5e7N8QZGsYrEsViJvqpWPdcsb1qd6Rfr6n7LsZsEUAkeTSexKB7p4DN/TgE7ti05RGccGXqO+l5Grsqh/mGsIUqS63Yt9GIaqZdjgG6gsxxDcSETJN4cSnPcwsngMigMYGYXy0ohl+Ns/Z0XuBeRwhs6fymzmWhbzP3cCcoS8/5IVBBQEFAT8Bm9MRiXOtidHAAAAAElFTkSuQmCC">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --accent: #00e5a0;
+    --accent-dim: rgba(0, 229, 160, 0.08);
+    --text: #e8e8f0;
+    --text-dim: #6b6b80;
+    --text-mid: #a0a0b8;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+  header {
+    padding: 40px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo-img { height: 36px; width: auto; display: block; }
+  .back-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+  .back-link:hover { border-color: var(--accent); color: var(--accent); }
+  .cv-header { padding: 56px 0 40px; }
+  .cv-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .cv-header .role {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+  }
+  .cv-header .meta {
+    font-size: 14px;
+    color: var(--text-dim);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+  }
+  .cv-header .meta a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+  .cv-header .meta a:hover { color: var(--accent); }
+  .divider { height: 1px; background: var(--border); margin: 0; }
+  .section { padding: 40px 0; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .about-text {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    max-width: 680px;
+  }
+  .project-block { margin-bottom: 32px; }
+  .project-block:last-child { margin-bottom: 0; }
+  .project-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .project-title a { color: inherit; text-decoration: none; }
+  .project-title a:hover { color: var(--accent); }
+  .project-stack {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 14px;
+  }
+  .project-block ul { padding-left: 18px; }
+  .project-block li {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+  .project-block li strong { color: var(--text-mid); font-weight: 500; }
+  .exp-item { margin-bottom: 28px; }
+  .exp-item:last-child { margin-bottom: 0; }
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .exp-company {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--text);
+  }
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+  .exp-role {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+  .exp-item p { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+  .edu-item { margin-bottom: 20px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-school {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .edu-course { font-size: 14px; color: var(--text-mid); margin-bottom: 4px; }
+  .edu-note { font-size: 13px; color: var(--text-dim); font-family: 'DM Mono', monospace; }
+  .skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .skills-table tr { border-bottom: 1px solid var(--border); }
+  .skills-table tr:last-child { border-bottom: none; }
+  .skills-table td {
+    padding: 14px 20px;
+    font-size: 14px;
+    background: var(--surface);
+    vertical-align: top;
+  }
+  .skills-table td:first-child {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    width: 160px;
+    border-right: 1px solid var(--border);
+  }
+  .skills-table td:last-child { color: var(--text-dim); line-height: 1.6; }
+  .certs-list, .achievements-list { list-style: none; padding: 0; }
+  .certs-list li, .achievements-list li {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .certs-list li:last-child, .achievements-list li:last-child { border-bottom: none; }
+  .achievements-list li { display: flex; gap: 10px; align-items: flex-start; }
+  .lang-row { display: flex; gap: 32px; }
+  .lang-item .lang-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .lang-item .lang-level { font-size: 13px; color: var(--text-dim); font-family: 'DM Mono', monospace; }
+  footer {
+    padding: 32px 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 0;
+  }
+  footer p { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-dim); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+  @media (max-width: 600px) {
+    .skills-table td:first-child { width: 110px; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <img src="data:image/png;base64,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" alt="VG Logo" class="logo-img">
+    <a href="/" class="back-link">← Voltar</a>
+  </header>
+
+  <div class="cv-header">
+    <h1>Victor Dias Gonçalves</h1>
+    <div class="role">AI Engineer · DevSecOps</div>
+    <div class="meta">
+      <span>São Paulo, SP</span>
+      <a href="mailto:victordg0223@gmail.com">victordg0223@gmail.com</a>
+      <a href="tel:+5511970599016">+55 11 9 7059-9016</a>
+      <a href="https://linkedin.com/in/victord-goncalves" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Victordg00" target="_blank">GitHub</a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Sobre</div>
+    <p class="about-text">Engenheiro de IA com background em segurança da informação. Construo sistemas com LLMs que entregam valor real com segurança e compliance integrados desde a arquitetura — não como camada adicional. Tenho experiência prática em ambientes financeiros regulados e dois projetos em produção que demonstram essa visão na prática.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Projetos com IA Generativa</div>
+
+    <div class="project-block">
+      <div class="project-title"><a href="https://github.com/ForjaDosDias/WordAddin" target="_blank">Luis Gama ↗</a></div>
+      <div class="project-stack">Python · FastAPI · DeepSeek API · JavaScript · Docker · Fly.io · GitHub Actions</div>
+      <ul>
+        <li>Sistema SaaS completo com Provider Pattern e fallback automático entre LLMs</li>
+        <li>Billing com planos Trial/Paid/Admin e integração com gateway de pagamento via webhooks</li>
+        <li><strong>LGPD compliance by design:</strong> conteúdo dos documentos nunca é persistido — apenas hash SHA-256 para rastreabilidade sem exposição de dados sensíveis</li>
+        <li>Logging estruturado com correlation ID por requisição para observabilidade em produção</li>
+        <li>CI/CD completo com testes automáticos a cada push e deploy automatizado</li>
+      </ul>
+    </div>
+
+    <div class="project-block">
+      <div class="project-title"><a href="https://github.com/Victordg00/Capataz" target="_blank">Capataz ↗</a></div>
+      <div class="project-stack">Python · LangGraph · FastAPI · Docker</div>
+      <ul>
+        <li>Agentes com papéis específicos: Arquiteto planeja, Operário executa, Inspetor valida com SAST antes de qualquer push</li>
+        <li><strong>Shift left security integrado</strong> — segurança como requisito arquitetural desde o início</li>
+        <li>Estado persistente entre execuções via LangGraph com thread_id</li>
+        <li>Audit log completo de cada decisão dos agentes para rastreabilidade total</li>
+        <li>Docker isolado para execução sem vazamento de segredos de ambiente</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Experiência Profissional</div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">Dfense Security</span>
+        <span class="exp-period">Dez/2022 – Dez/2023</span>
+      </div>
+      <div class="exp-role">Analista de Desenvolvimento de Sistemas</div>
+      <p>Automação de processos com Python e Shell Script em ambientes enterprise de alta criticidade. Integração de plataformas de segurança (Gigamon, Netskope, CyberArk) via APIs. Assessments de segurança em AWS. Clientes do setor financeiro: Bradesco, Cielo.</p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">T-Systems Brasil</span>
+        <span class="exp-period">Abr/2022 – Nov/2022</span>
+      </div>
+      <div class="exp-role">Estagiário em Segurança da Informação SOC N1</div>
+      <p>Monitoramento e resposta a incidentes críticos. Assessments em AWS. Validação de compliance com LGPD, criptografia e padrões regulatórios.</p>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <span class="exp-company">Flipside</span>
+        <span class="exp-period">Out/2021 – Mar/2022</span>
+      </div>
+      <div class="exp-role">Estagiário em TI</div>
+      <p>Desenvolvimento de bots em Python com integração via REST API para automação de processos.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Formação</div>
+
+    <div class="edu-item">
+      <div class="edu-school">FIAP</div>
+      <div class="edu-course">Tecnólogo em Defesa Cibernética · 2022</div>
+      <div class="edu-note">Bolsa Mérito — 3º lugar geral em Segurança da Informação entre todos os estudantes</div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-school">ENIAC</div>
+      <div class="edu-course">Tecnólogo em Análise e Desenvolvimento de Sistemas · 2020</div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Competências Técnicas</div>
+    <table class="skills-table">
+      <tr><td>IA &amp; LLMs</td><td>LangGraph · LangChain · RAG · Multi-agent systems · Provider Pattern · DeepSeek API · OpenAI API</td></tr>
+      <tr><td>Desenvolvimento</td><td>Python · FastAPI · JavaScript · Node.js · REST APIs · Shell Script</td></tr>
+      <tr><td>DevSecOps</td><td>Docker · GitHub Actions · CI/CD · Shift left security · SAST · CyberArk · Netskope</td></tr>
+      <tr><td>Cloud</td><td>AWS · GCP · Fly.io · Digital Ocean</td></tr>
+      <tr><td>Dados &amp; Banco</td><td>PostgreSQL · SQLite · SQLAlchemy · Prisma · Bancos vetoriais (ChromaDB)</td></tr>
+      <tr><td>Compliance</td><td>LGPD by design · Logging estruturado · Auditoria · MITRE ATT&amp;CK</td></tr>
+    </table>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Certificações</div>
+    <ul class="certs-list">
+      <li>AWS Cloud Practitioner — Amazon (2022)</li>
+      <li>AZ-900 Azure Fundamentals — Microsoft (em preparação)</li>
+      <li>CyberOps Associate — Cisco (2022)</li>
+      <li>Linux Avançado — IFSP (em andamento)</li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Conquistas</div>
+    <ul class="achievements-list">
+      <li><span>🥇</span><span>1º lugar — Desafio Banco Carrefour FIAP 2022: implementação de MISP na nuvem com coleta de IoC via API</span></li>
+      <li><span>🥇</span><span>1º lugar — CTF NEXT FIAP 2022: competição de defesa cibernética entre todas as turmas da FIAP</span></li>
+      <li><span>🥈</span><span>2º lugar — Desafio PrideSec FIAP 2021: WebCrawler para detecção de credenciais vazadas</span></li>
+      <li><span>🥈</span><span>2º lugar — Global Solution FIAP 2021: CTF multi-cenário (redes, engenharia reversa, criptografia)</span></li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="section-label">Idiomas</div>
+    <div class="lang-row">
+      <div class="lang-item">
+        <div class="lang-name">Português</div>
+        <div class="lang-level">Nativo</div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name">Inglês</div>
+        <div class="lang-level">Avançado</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Victor Dias Gonçalves</p>
+    <div class="footer-links">
+      <a href="https://github.com/Victordg00" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/victord-goncalves" target="_blank">LinkedIn</a>
+      <a href="https://wa.me/5511911993949" target="_blank">WhatsApp</a>
+    </div>
+  </footer>
+</div>
+</body></html>
