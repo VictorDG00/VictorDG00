@@ -1,6 +1,11 @@
+# robots.txt — victordg.dev.br
+# Victor Dias Gonçalves | AI Engineer & DevSecOps
+
+# Permitir todos os crawlers de busca
 User-agent: *
 Allow: /
 
+# Crawlers de IA — acesso explícito ao llms.txt
 User-agent: GPTBot
 Allow: /
 
@@ -13,5 +18,13 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
+# Bloquear acesso a arquivos de sistema e configuração
+Disallow: /admin/
+Disallow: /.env
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /private/
+
+# Sitemap e contexto para LLMs
 Sitemap: https://victordg.dev.br/sitemap.xml
 LLMs: https://victordg.dev.br/llms.txt
