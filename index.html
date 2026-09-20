@@ -1,424 +1,494 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Victor Gonçalves | Desenvolvimento com IA</title>
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACdklEQVR4nO2WTUgUcRjGf+87GplrLoiHDgURFUZQBIlSipeiQKEPCupS1KFDdKqoQwchCrqGERFdtDoZRR7MNQoU7UukIII6FllUdijL/Nh5OsxqhLm7ysJ22AdemPn/Z555/u/nGCDyCM/nxwsCCgL+CwFFWT3lBuaQTP57P3DAUjcCM0iGoMwVbuS5D6T3gDuEIb6rDquuIjxzDU3O9EJwfC9aUgHjE9GpF5dCYoCwo3+aIx00qwUuQL5prVw98q0bhSGCINoz5OtXyH50Cj2U6UHKeuX16/7imM3SeyAZghth30u86zEc3QGJZ6AwygkBB7ZhH79iJy5HsQwc+z5K2PPiD0cGpFVIEERe2LFZPtIpX710es/iMflQu/zsofQcaSxzGYYhGKjzCbz/AkeaonUD21kH8RhqS0AQYPEYVlaClZdGsc8SmZVOeeH0fvmHW7J4TAbyRy3yexei63OH5a9bZc+vKmhvlhUXCbMceACimANq7YJFC7HGGli7HGrWQMttKFsEu+vRgmJYtQz1v0ITk6n+kB7ZCQgFgaOhYbjbBwe349uq4e1ndH8Qkkm05STW1g0jo+jm/dR7mRNwbq3YgEt30IaVEIbY+evo1zj6OYbefYLGWqzrKfr4NVX/2fW47LPWLIp370V5e7N8QZGsYrEsViJvqpWPdcsb1qd6Rfr6n7LsZsEUAkeTSexKB7p4DN/TgE7ti05RGccGXqO+l5Grsqh/mGsIUqS63Yt9GIaqZdjgG6gsxxDcSETJN4cSnPcwsngMigMYGYXy0ohl+Ns/Z0XuBeRwhs6fymzmWhbzP3cCcoS8/5IVBBQEFAT8Bm9MRiXOtidHAAAAAElFTkSuQmCC">
-<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAACdklEQVR4nO2WTUgUcRjGf+87GplrLoiHDgURFUZQBIlSipeiQKEPCupS1KFDdKqoQwchCrqGERFdtDoZRR7MNQoU7UukIII6FllUdijL/Nh5OsxqhLm7ysJ22AdemPn/Z555/u/nGCDyCM/nxwsCCgL+CwFFWT3lBuaQTP57P3DAUjcCM0iGoMwVbuS5D6T3gDuEIb6rDquuIjxzDU3O9EJwfC9aUgHjE9GpF5dCYoCwo3+aIx00qwUuQL5prVw98q0bhSGCINoz5OtXyH50Cj2U6UHKeuX16/7imM3SeyAZghth30u86zEc3QGJZ6AwygkBB7ZhH79iJy5HsQwc+z5K2PPiD0cGpFVIEERe2LFZPtIpX710es/iMflQu/zsofQcaSxzGYYhGKjzCbz/AkeaonUD21kH8RhqS0AQYPEYVlaClZdGsc8SmZVOeeH0fvmHW7J4TAbyRy3yexei63OH5a9bZc+vKmhvlhUXCbMceACimANq7YJFC7HGGli7HGrWQMttKFsEu+vRgmJYtQz1v0ITk6n+kB7ZCQgFgaOhYbjbBwe349uq4e1ndH8Qkkm05STW1g0jo+jm/dR7mRNwbq3YgEt30IaVEIbY+evo1zj6OYbefYLGWqzrKfr4NVX/2fW47LPWLIp370V5e7N8QZGsYrEsViJvqpWPdcsb1qd6Rfr6n7LsZsEUAkeTSexKB7p4DN/TgE7ti05RGccGXqO+l5Grsqh/mGsIUqS63Yt9GIaqZdjgG6gsxxDcSETJN4cSnPcwsngMigMYGYXy0ohl+Ns/Z0XuBeRwhs6fymzmWhbzP3cCcoS8/5IVBBQEFAT8Bm9MRiXOtidHAAAAAElFTkSuQmCC">
-<meta name="description" content="Consultoria de desenvolvimento com IA. Automações, agentes e integrações para empresas que querem resultado.">
-<link rel="canonical" href="https://victordg.dev.br/">
-<meta name="author" content="Victor Dias Gonçalves">
-<meta name="keywords" content="AI Engineer, desenvolvimento com IA, LLMs, automação, DevSecOps, LangGraph, FastAPI, Python, São Paulo">
-<meta property="og:title" content="Victor Gonçalves | Desenvolvimento com IA">
-<meta property="og:description" content="Construo automações, integrações e soluções com IA para empresas que querem resultado. Me chama e conta o problema.">
-<meta property="og:url" content="https://victordg.dev.br">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Victor Gonçalves | Desenvolvimento com IA">
-<meta name="twitter:description" content="Construo automações, integrações e soluções com IA para empresas que querem resultado.">
-<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0a0a0f;
-    --surface: #111118;
-    --border: #1e1e2e;
-    --accent: #00e5a0;
-    --accent-dim: rgba(0, 229, 160, 0.08);
-    --text: #e8e8f0;
-    --text-dim: #6b6b80;
-    --text-mid: #a0a0b8;
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
-    background-size: 48px 48px;
-    pointer-events: none;
-    z-index: 0;
-  }
-  body::after {
-    content: '';
-    position: fixed;
-    top: -200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 400px;
-    background: radial-gradient(ellipse, rgba(0,229,160,0.06) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0 24px;
-    position: relative;
-    z-index: 1;
-  }
-  header {
-    padding: 40px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo-img {
-    height: 36px;
-    width: auto;
-    display: block;
-  }
-  .badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    border: 1px solid var(--border);
-    padding: 6px 12px;
-    border-radius: 20px;
-    letter-spacing: 0.05em;
-  }
-  .hero { padding: 72px 0 56px; }
-  .hero-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .hero-label::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 1px;
-    background: var(--accent);
-  }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(38px, 7vw, 68px);
-    line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
-  }
-  .hero h1 em { font-style: italic; color: var(--accent); }
-  .hero p {
-    font-size: 17px;
-    color: var(--text-mid);
-    line-height: 1.7;
-    max-width: 520px;
-    margin-bottom: 40px;
-  }
-  .cta-group { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--accent);
-    color: #0a0a0f;
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 14px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: all 0.2s ease;
-  }
-  .btn-primary:hover {
-    background: #00fdb3;
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(0,229,160,0.25);
-  }
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    color: var(--text-mid);
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    padding: 14px 24px;
-    border-radius: 4px;
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    border: 1px solid var(--border);
-    transition: all 0.2s ease;
-  }
-  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
-  .divider { height: 1px; background: var(--border); margin: 0; }
-  .section { padding: 56px 0; }
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--text-dim);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 32px;
-  }
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .service-card {
-    background: var(--surface);
-    padding: 32px 28px;
-    transition: background 0.2s;
-  }
-  .service-card:hover { background: var(--accent-dim); }
-  .service-icon { font-size: 24px; margin-bottom: 16px; }
-  .service-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 20px;
-    color: var(--text);
-    margin-bottom: 10px;
-    letter-spacing: -0.01em;
-  }
-  .service-card p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
-  .projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--border);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  .project-item {
-    background: var(--surface);
-    padding: 28px;
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    transition: background 0.2s;
-  }
-  .project-item:hover { background: var(--accent-dim); }
-  .project-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--accent);
-    background: var(--accent-dim);
-    border: 1px solid rgba(0,229,160,0.2);
-    padding: 4px 10px;
-    border-radius: 20px;
-    white-space: nowrap;
-    margin-top: 3px;
-    letter-spacing: 0.05em;
-  }
-  .project-info h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 18px;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-  .project-info p { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
-  .contact-strip {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 56px;
-  }
-  .contact-strip h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-  .contact-strip p { font-size: 14px; color: var(--text-dim); margin-top: 4px; }
-  footer {
-    padding: 32px 0;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  footer p { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--text-dim); }
-  .footer-links { display: flex; gap: 24px; }
-  .footer-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-  .footer-links a:hover { color: var(--accent); }
-  .project-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-    flex-wrap: wrap;
-  }
-  .status-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.06em;
-    padding: 3px 9px;
-    border-radius: 20px;
-    color: #f5c542;
-    background: rgba(245,197,66,0.08);
-    border: 1px solid rgba(245,197,66,0.3);
-  }
-  .commit-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--text-dim);
-  }
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .hero-label { animation: fadeUp 0.5s ease both; }
-  .hero h1 { animation: fadeUp 0.5s 0.1s ease both; }
-  .hero p { animation: fadeUp 0.5s 0.2s ease both; }
-  .cta-group { animation: fadeUp 0.5s 0.3s ease both; }
-  .cursor {
-    display: inline-block;
-    width: 8px;
-    height: 16px;
-    background: var(--accent);
-    margin-left: 4px;
-    animation: blink 1s step-end infinite;
-    vertical-align: middle;
-  }
-  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-  @media (max-width: 600px) {
-    .contact-strip { flex-direction: column; text-align: center; }
-    footer { flex-direction: column; text-align: center; }
-  }
-</style>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Desenvolvo sistemas em Python/FastAPI, gerencio infraestrutura Linux e aplico automação e segurança em ambientes Docker e Cloud — do código à produção." />
+  <title>Victor Dias Gonçalves — Security & Platform Engineer</title>
+  <link rel="canonical" href="https://victordg.dev.br/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://victordg.dev.br/" />
+  <meta property="og:title" content="Victor Dias Gonçalves — Segurança que vira sistema." />
+  <meta property="og:description" content="Python/FastAPI, infraestrutura Linux, automação e segurança em Docker e Cloud — do código à produção." />
+  <meta property="og:image" content="https://victordg.dev.br/assets/images/social-preview.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Victor Dias Gonçalves — Security &amp; Platform Engineer. Segurança que vira sistema." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Victor Dias Gonçalves — Segurança que vira sistema." />
+  <meta name="twitter:description" content="Python/FastAPI, infraestrutura Linux, automação e segurança em Docker e Cloud — do código à produção." />
+  <meta name="twitter:image" content="https://victordg.dev.br/assets/images/social-preview.png" />
+  <meta name="twitter:image:alt" content="Victor Dias Gonçalves — Segurança que vira sistema." />
+  <link rel="stylesheet" href="assets/css/site.css" />
+
 </head>
 <body>
-<div class="container">
-  <header>
-    <img src="data:image/png;base64,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" alt="VG Logo" class="logo-img">
-    <div class="badge">São Paulo · SP</div>
+  <header class="topbar" id="topbar">
+    <div class="wrap topbar-inner">
+      <a href="#top" class="mark"><span class="mark-dot"></span> Victor Dias</a>
+      <nav class="navlinks" aria-label="Navegação principal">
+        <a href="#invariant">Invariant</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#stack">Stack</a>
+        <a class="nav-cta" href="cv.html">Currículo ↗</a>
+      </nav>
+    </div>
   </header>
-  <section class="hero">
-    <div class="hero-label">Desenvolvimento com IA</div>
-    <h1>Tecnologia que<br><em>resolve de verdade</em><span class="cursor"></span></h1>
-    <p>Construo automações, integrações e soluções com IA para empresas que querem resultado — não só uma proposta bonita. Me chama e conta o problema. Você vai ter alguém que pensa junto no negócio, não só na tecnologia.</p>
-    <div class="cta-group">
-      <a href="https://wa.me/5511911993949" class="btn-primary" target="_blank">💬 Falar no WhatsApp</a>
-      <a href="https://github.com/Victordg00" class="btn-secondary" target="_blank">Ver projetos →</a>
-    </div>
-  </section>
-  <div class="divider"></div>
-  <section class="section">
-    <div class="section-label">O que eu faço</div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🤖</div>
-        <h3>Automação com IA</h3>
-        <p>Fluxos que antes levavam horas rodando sozinhos — com inteligência para lidar com exceções.</p>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-role">Security & Platform Engineer</div>
+          <h1>
+            Segurança que <span class="gradient-word">vira sistema.</span>
+          </h1>
+
+          <div class="hero-copy">
+            <p>
+              Desenvolvo sistemas em Python/FastAPI, gerencio infraestrutura Linux e aplico automação e segurança em ambientes Docker e Cloud — do código à produção.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#invariant">Ver case principal</a>
+              <a class="btn secondary" href="#contato">Contato</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="mini-card">
+            <div class="mini-label">Status</div>
+            <div class="status"><i></i> Aberto a oportunidades</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-label">Atual</div>
+            <div class="mini-value">Founder @ Invariant Security</div>
+            <div class="stat-sub">Security & Platform Engineering</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-label">Certificações</div>
+            <div class="mini-value">AWS CCP · Cisco CyberOps</div>
+            <div class="stat-sub">São Paulo, Brasil</div>
+          </div>
+        </aside>
+
+        <div class="hero-foot">
+          <span>Linux · Docker · Python · FastAPI · PostgreSQL · CI/CD</span>
+          <span>Security by design · Platform engineering · Backend</span>
+        </div>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🔗</div>
-        <h3>Integração de Sistemas</h3>
-        <p>Conectar APIs, sistemas internos e serviços externos para que a informação flua sem atrito.</p>
+    </section>
+
+    <section class="manifesto">
+      <div class="wrap manifesto-grid">
+        <p class="kicker">Princípio de trabalho</p>
+        <p>
+          Segurança na prática: não é um 'check' no final da sprint.
+          <strong>Ela precisa existir no CI/CD, na arquitetura e na operação do dia a dia.</strong>
+        </p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">⚡</div>
-        <h3>Backend & APIs</h3>
-        <p>Serviços rápidos, seguros e escaláveis que sustentam o que o negócio precisa entregar.</p>
+    </section>
+
+    <section id="stack" class="section compact">
+      <div class="wrap">
+        <p class="kicker">Onde eu atuo</p>
+        <h2>Tecnologias &amp; Ferramentas de Produção</h2>
+
+        <div class="bento">
+          <article class="tile big">
+            <span class="num">01</span>
+            <h3>Platform Engineering</h3>
+            <p>
+              Operação de aplicações, isolamento de workloads, reverse proxy,
+              systemd, ambientes separados e troubleshooting de infraestrutura.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Linux</span><span class="chip">Docker</span>
+              <span class="chip">Docker Compose</span><span class="chip">LXD/LXC</span>
+              <span class="chip">Nginx</span><span class="chip">systemd</span>
+              <span class="chip">SSH</span><span class="chip">DNS/TLS</span>
+            </div>
+          </article>
+
+          <article class="tile tall">
+            <span class="num">02</span>
+            <h3>Security Engineering</h3>
+            <p>
+              Hardening, assessment, incident response, firewalling e decisões
+              de arquitetura voltadas para redução de superfície de risco.
+            </p>
+            <div class="chip-row">
+              <span class="chip">CIS Benchmarks</span><span class="chip">UFW</span>
+              <span class="chip">iptables/nftables</span><span class="chip">CyberArk</span>
+              <span class="chip">Gigamon</span><span class="chip">Netskope</span>
+            </div>
+          </article>
+
+          <article class="tile third">
+            <span class="num">03</span>
+            <h3>Backend</h3>
+            <p>APIs, automações, persistência e integração entre serviços.</p>
+            <div class="chip-row">
+              <span class="chip">Python</span><span class="chip">FastAPI</span>
+              <span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy</span>
+            </div>
+          </article>
+
+          <article class="tile third">
+            <span class="num">04</span>
+            <h3>Delivery</h3>
+            <p>Fluxos de promoção, testes automatizados e proteção contra regressões.</p>
+            <div class="chip-row">
+              <span class="chip">GitHub Actions</span><span class="chip">CI/CD</span>
+              <span class="chip">pytest</span><span class="chip">Vitest</span>
+            </div>
+          </article>
+
+          <article class="tile third">
+            <span class="num">05</span>
+            <h3>Cloud & Infra</h3>
+            <p>Assessments AWS e fundamentos de infraestrutura cloud.</p>
+            <div class="chip-row">
+              <span class="chip">EC2</span><span class="chip">VPC</span>
+              <span class="chip">IAM</span><span class="chip">S3</span>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
-  <div class="divider"></div>
-  <section class="section">
-    <div class="section-label">Projetos</div>
-    <div class="projects-list">
-      <div class="project-item">
-        <div class="project-tag">IA · SaaS</div>
-        <div class="project-info">
-          <h3><a href="https://github.com/ForjaDosDias/WordAddin" target="_blank" style="color:inherit;text-decoration:none;">Luis Gama ↗</a></h3>
-          <p>Add-in para Microsoft Word que analisa documentos jurídicos via LLM — com billing, autenticação e deploy automatizado.</p>
-          <div class="project-status">
-            <span class="status-tag">em produção</span>
-            <span class="commit-date" id="commit-luis-gama">carregando...</span>
+    </section>
+
+    <section id="invariant" class="section">
+      <div class="wrap">
+        <p class="kicker">Case principal</p>
+        <h2>Invariant Security</h2>
+        <p class="lead case-intro">
+          Produto em validação de mercado para assessment, evidência e
+          rastreabilidade de segurança em hosts Linux e containers Docker.
+        </p>
+
+        <div class="case-shell">
+          <div class="case-top">
+            <div>
+              <h3 class="case-title">Assessment CIS com evidências por controle.</h3>
+              <p>
+                A plataforma avalia hosts e containers, cruza resultados com
+                controles CIS e entrega findings estruturados para análise técnica
+                e executiva.
+              </p>
+            </div>
+            <div class="case-badge">~199 checks CIS / target</div>
+          </div>
+
+          <div class="case-grid">
+            <div class="case-copy">
+              <div class="case-list">
+                <div class="case-item">
+                  <div class="case-index">01</div>
+                  <div>
+                    <h3>Assessment Engine</h3>
+                    <p>Hosts via SSH/Paramiko e containers via <code>docker exec</code>, sem persistência das credenciais de avaliação.</p>
+                  </div>
+                </div>
+
+                <div class="case-item">
+                  <div class="case-index">02</div>
+                  <div>
+                    <h3>Arquitetura distribuída</h3>
+                    <p>Serviços FastAPI stateless, comunicação REST síncrona e persistência centralizada em PostgreSQL.</p>
+                  </div>
+                </div>
+
+                <div class="case-item">
+                  <div class="case-index">03</div>
+                  <div>
+                    <h3>Demo Lab isolado</h3>
+                    <p>Infraestrutura fictícia dedicada, elegibilidade controlada no backend e mecanismos contra vazamento de identificadores reais.</p>
+                  </div>
+                </div>
+
+                <div class="case-item">
+                  <div class="case-index">04</div>
+                  <div>
+                    <h3>Dev → Staging → Production</h3>
+                    <p>Ambientes fisicamente separados, GitHub Actions e testes de regressão integrados ao fluxo de entrega.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="arch-panel" aria-labelledby="architecture-title">
+              <h3 class="arch-label" id="architecture-title">Arquitetura simplificada</h3>
+              <div class="arch-flow">
+                <div class="node">
+                  <strong>React Frontend</strong>
+                  <span>Interface web</span>
+                </div>
+                <div class="connector"><span class="protocol">REST / HTTPS</span></div>
+                <div class="node node-api">
+                  <strong>Invariant API · FastAPI</strong>
+                  <span>Orquestração · regras · persistência</span>
+                </div>
+                <div class="arch-branches">
+                  <div class="arch-branch">
+                    <div class="connector"><span class="protocol">HTTP interno</span></div>
+                    <div class="service-nodes">
+                      <div class="node"><strong>Assessment</strong><span>Checks CIS</span></div>
+                      <div class="node"><strong>Ingestion</strong><span>Normalização</span></div>
+                      <div class="node"><strong>Discovery</strong><span>Identificação de ativos</span></div>
+                    </div>
+                  </div>
+                  <div class="arch-branch">
+                    <div class="connector"><span class="protocol">SQL / TCP</span></div>
+                    <div class="node node-database">
+                      <span class="protocol">PostgreSQL</span>
+                      <strong>Persistência</strong>
+                      <span>Acesso exclusivo pela API</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="arch-caption">A API chama os serviços internos e centraliza o acesso ao banco.</p>
+            </aside>
           </div>
         </div>
       </div>
-      <div class="project-item">
-        <div class="project-tag">Agentes · DevOps</div>
-        <div class="project-info">
-          <h3><a href="https://github.com/Victordg00/Capataz" target="_blank" style="color:inherit;text-decoration:none;">Capataz ↗</a></h3>
-          <p>Orquestrador multi-agente onde diferentes modelos de IA colaboram num pipeline de desenvolvimento com segurança integrada.</p>
-          <div class="project-status">
-            <span class="status-tag">em produção</span>
-            <span class="commit-date" id="commit-capataz">carregando...</span>
+    </section>
+
+    <section class="section compact">
+      <div class="wrap">
+        <p class="kicker">Engineering notes</p>
+        <h2>Post-mortems &amp; Soluções em Produção</h2>
+
+        <div class="problems">
+          <article class="problem">
+            <span class="tag">Root cause analysis</span>
+            <h3>UFW, Docker e drift de firewall</h3>
+            <p>
+              Investiguei uma interação que removia regras customizadas em
+              <code>DOCKER-USER</code> e implementei reconciliação idempotente
+              com scripts e systemd para restaurar o estado esperado.
+            </p>
+            <figure class="terminal">
+              <figcaption>Comando de inspeção</figcaption>
+              <pre><code><span class="terminal-comment"># Reconciliação idempotente via systemd</span>
+<span class="terminal-prompt">$</span> sudo iptables -L DOCKER-USER -n -v</code></pre>
+            </figure>
+          </article>
+
+          <article class="problem">
+            <span class="tag">Security by design</span>
+            <h3>Demo sem depender de sanitização posterior</h3>
+            <p>
+              Em vez de usar infraestrutura real e tentar remover dados sensíveis
+              depois, a demo opera sobre infraestrutura fictícia criada para esse fim.
+            </p>
+            <figure class="terminal">
+              <figcaption>Política de elegibilidade · pseudocódigo</figcaption>
+              <pre><code><span class="terminal-comment"># Validar o alvo antes do assessment</span>
+if target not in demo_inventory:
+    deny_assessment()</code></pre>
+            </figure>
+          </article>
+
+          <article class="problem">
+            <span class="tag">Architecture</span>
+            <h3>Separação por responsabilidade e runtime</h3>
+            <p>
+              A decomposição da solução priorizou compatibilidade de dependências,
+              isolamento de workloads e contratos simples entre serviços.
+            </p>
+            <figure class="terminal">
+              <figcaption>Contrato entre serviços · esquema</figcaption>
+              <pre><code><span class="terminal-comment"># Responsabilidades separadas</span>
+API → HTTP → Assessment / Ingestion / Discovery
+API → SQL  → PostgreSQL</code></pre>
+            </figure>
+          </article>
+
+          <article class="problem">
+            <span class="tag">Delivery</span>
+            <h3>Regressão como parte da correção</h3>
+            <p>
+              Falhas descobertas em validação são reproduzidas em testes antes da
+              correção e preservadas na suíte para reduzir recorrência.
+            </p>
+            <figure class="terminal">
+              <figcaption>Exemplo de execução da suíte</figcaption>
+              <pre><code><span class="terminal-comment"># Reproduzir a falha e validar a correção</span>
+<span class="terminal-prompt">$</span> pytest -q --maxfail=1</code></pre>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section">
+      <div class="wrap">
+        <p class="kicker">Experiência</p>
+        <h2>Histórico Profissional</h2>
+
+        <div class="timeline">
+          <article class="job">
+            <time>Jul/2026 → atual</time>
+            <div>
+              <div class="job-company">Invariant Security</div>
+              <div class="job-role">Founder | Security & Platform Engineer</div>
+            </div>
+            <p>Produto, backend, infraestrutura, segurança, CI/CD e operação da plataforma.</p>
+          </article>
+
+          <article class="job">
+            <time>Mai/2025 → Mai/2026</time>
+            <div>
+              <div class="job-company">Mares Comercial</div>
+              <div class="job-role">Analista de E-commerce</div>
+            </div>
+            <p>Automação de processos internos de e-commerce e suporte a sistemas.</p>
+          </article>
+
+          <article class="job">
+            <time>Mai/2024 → Fev/2025</time>
+            <div>
+              <div class="job-company">Foundever Brasil</div>
+              <div class="job-role">Analista de Atendimento Bilíngue</div>
+            </div>
+            <p>Atendimento técnico e suporte bilíngue a incidentes.</p>
+          </article>
+
+          <article class="job">
+            <time>Dez/2022 → Nov/2023</time>
+            <div>
+              <div class="job-company">Dfense Security</div>
+              <div class="job-role">Analista de Desenvolvimento de Sistemas</div>
+            </div>
+            <p>Automações em Python/Shell, integrações com CyberArk, Gigamon e Netskope, assessments AWS e atividades de segurança em Linux/Windows.</p>
+          </article>
+
+          <article class="job">
+            <time>Abr/2022 → Dez/2022</time>
+            <div>
+              <div class="job-company">T-Systems</div>
+              <div class="job-role">Segurança da Informação · SOC N1</div>
+            </div>
+            <p>Monitoramento de incidentes, crises, chamados de SOC, criptografia, compliance e LGPD.</p>
+          </article>
+
+          <article class="job">
+            <time>Out/2021 → Mar/2022</time>
+            <div>
+              <div class="job-company">Flipside</div>
+              <div class="job-role">Estagiário de TI</div>
+            </div>
+            <p>Usuários, ativos, acessos e automações em Python com APIs REST.</p>
+          </article>
+
+          <article class="job">
+            <time>Dez/2019 → Out/2020</time>
+            <div>
+              <div class="job-company">Stefanini</div>
+              <div class="job-role">Analista de Suporte de TI</div>
+            </div>
+            <p>Suporte N1/N2, redes, VPN, estações e serviços em ambiente corporativo de alta criticidade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section compact">
+      <div class="wrap">
+        <p class="kicker">Projetos em produção</p>
+        <h2>Além da Invariant.</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div>
+              <p class="kicker project-tech">Python · FastAPI · PostgreSQL</p>
+              <h3>Amanuense</h3>
+              <p>
+                Pipeline de processamento de documentos com FastAPI, SQLAlchemy,
+                Alembic, PyMuPDF/pdfplumber, OCR e testes automatizados.
+              </p>
+            </div>
+            <div class="project-links">
+              <span class="badge">Demo sob consulta</span>
+              <a href="https://github.com/VictorDG00/Amanuense" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <p class="kicker project-tech">Node.js · PostgreSQL · Docker</p>
+              <h3>EstudeiOAB</h3>
+              <p>
+                Aplicação em produção com backend Node/Express, autenticação JWT,
+                testes Jest/Supertest e deploy em VPS com Docker, Nginx e GitHub Actions.
+              </p>
+            </div>
+            <div class="project-links">
+              <span class="badge">Demo sob consulta</span>
+              <a href="https://github.com/ForjaDosDias/EstudeOAB" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="wrap">
+        <p class="kicker">Formação & certificações</p>
+        <h2>Formação &amp; Certificações</h2>
+
+        <div class="cred-grid">
+          <div class="cred">
+            <h3>Formação</h3>
+            <div class="cred-row">
+              <strong>Defesa Cibernética · FIAP<br /><a class="diploma-link" href="https://www.fiap.com.br/graduacao/consulta-publica-de-diplomas/?chave=852.852.c26fff4cb61ab9db790c78e8" target="_blank" rel="noopener noreferrer">Consultar diploma ↗</a></strong>
+              <span>2023</span>
+            </div>
+            <div class="cred-row">
+              <strong>Análise e Desenvolvimento de Sistemas · ENIAC</strong>
+              <span>2020</span>
+            </div>
+          </div>
+
+          <div class="cred">
+            <h3>Certificações</h3>
+            <div class="cred-row"><strong>AWS Certified Cloud Practitioner</strong></div>
+            <div class="cred-row"><strong>Cisco CyberOps Associate</strong></div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <div class="divider"></div>
-  <section class="section">
-    <div class="contact-strip">
-      <div>
-        <h2>Vamos conversar?</h2>
-        <p>Sem formulário. Sem enrolação. Direto no WhatsApp.</p>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="wrap">
+        <div class="contact-box">
+          <p class="kicker">Contato</p>
+          <h2>Contato para oportunidades em backend, infraestrutura e segurança.</h2>
+          <div class="contact-actions">
+            <a class="btn primary" href="mailto:victord.goncalves@outlook.com">victord.goncalves@outlook.com</a>
+            <a class="btn" href="tel:+5511911993949">+55 (11) 91199-3949</a>
+            <a class="btn" href="https://www.linkedin.com/in/victord-goncalves" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn" href="https://github.com/VictorDG00" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="cv.html">Currículo ↗</a>
+          </div>
+        </div>
       </div>
-      <a href="https://wa.me/5511911993949" class="btn-primary" target="_blank">💬 Chamar agora</a>
-    </div>
-  </section>
-  <div style="text-align:center; padding-bottom: 56px;">
-    <a href="/cv" class="btn-secondary" style="display:inline-flex;">Ver currículo completo →</a>
-  </div>
-</div>
-<div class="container">
+    </section>
+  </main>
+
   <footer>
-    <p>© 2026 Victor Dias Gonçalves</p>
-    <div class="footer-links">
-      <a href="https://github.com/Victordg00" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/victord-goncalves" target="_blank">LinkedIn</a>
-      <a href="https://wa.me/5511911993949" target="_blank">WhatsApp</a>
-      <a href="mailto:victord.goncalves@outlook.com">Email</a>
+    <div class="wrap footer-row">
+      <span>© <span id="year"></span> Victor Dias Gonçalves</span>
+      <span>Security & Platform Engineer · São Paulo, Brasil</span>
     </div>
   </footer>
-</div>
 
-
-<script>
-  async function fetchLastCommit(repo, elementId) {
-    try {
-      const res = await fetch(`https://api.github.com/repos/${repo}/commits?per_page=1`);
-      const data = await res.json();
-      const date = new Date(data[0].commit.author.date);
-      const formatted = date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
-      document.getElementById(elementId).textContent = `último commit: ${formatted}`;
-    } catch {
-      document.getElementById(elementId).textContent = '';
-    }
-  }
-  fetchLastCommit('ForjaDosDias/WordAddin', 'commit-luis-gama');
-  fetchLastCommit('Victordg00/Capataz', 'commit-capataz');
-</script>
-</body></html>
+  <script src="assets/js/site.js" defer></script>
+</body>
+</html>

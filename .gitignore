@@ -1,0 +1,5 @@
+# Notas locais da VPS
+docs/AMBIENTE-VPS.md
+.env
+.env.*
+!.env.example
