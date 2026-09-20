@@ -1,0 +1,1024 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Victor Dias Gonçalves — Security & Platform Engineer" />
+  <title>Victor Dias Gonçalves — Security & Platform Engineer</title>
+  <style>
+    :root{
+      --bg:#07090d;
+      --panel:#0d1117;
+      --panel-2:#111722;
+      --text:#f4f7fb;
+      --muted:#8f9aab;
+      --line:rgba(255,255,255,.10);
+      --line-strong:rgba(255,255,255,.16);
+      --blue:#6ea8ff;
+      --cyan:#74e0ff;
+      --lime:#b7ff70;
+      --violet:#a889ff;
+      --shadow:0 24px 70px rgba(0,0,0,.35);
+      --radius:26px;
+      --max:1240px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(1000px 650px at 88% -10%, rgba(110,168,255,.17), transparent 55%),
+        radial-gradient(800px 500px at 12% 8%, rgba(168,137,255,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.55;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size:48px 48px;
+      mask-image:linear-gradient(to bottom, rgba(0,0,0,.85), transparent 88%);
+      z-index:-1;
+    }
+
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .wrap{width:min(calc(100% - 34px),var(--max));margin:auto}
+    .section{padding:110px 0}
+    .section.compact{padding:76px 0}
+    .kicker{
+      margin:0 0 14px;
+      color:var(--blue);
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    h1,h2,h3,p{margin-top:0}
+    h1{
+      margin:0;
+      font-size:clamp(4rem,9vw,8.2rem);
+      line-height:.88;
+      letter-spacing:-.075em;
+      font-weight:800;
+      max-width:1050px;
+    }
+    h2{
+      margin:0;
+      font-size:clamp(2.4rem,5vw,4.6rem);
+      line-height:.98;
+      letter-spacing:-.055em;
+    }
+    h3{
+      margin-bottom:8px;
+      font-size:1.08rem;
+      letter-spacing:-.02em;
+    }
+    .lead{
+      color:#c5cfdb;
+      font-size:clamp(1.05rem,1.9vw,1.35rem);
+      max-width:760px;
+    }
+    .muted{color:var(--muted)}
+
+    /* top nav */
+    .topbar{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:50;
+      border-bottom:1px solid transparent;
+      transition:.25s ease;
+    }
+    .topbar.scrolled{
+      background:rgba(7,9,13,.72);
+      backdrop-filter:blur(18px);
+      border-bottom-color:var(--line);
+    }
+    .topbar-inner{
+      min-height:70px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .mark{
+      display:flex;
+      align-items:center;
+      gap:11px;
+      font-weight:800;
+      letter-spacing:-.02em;
+    }
+    .mark-dot{
+      width:11px;height:11px;border-radius:50%;
+      background:linear-gradient(135deg,var(--cyan),var(--violet));
+      box-shadow:0 0 24px rgba(116,224,255,.55);
+    }
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:20px;
+      color:var(--muted);
+      font-size:.92rem;
+    }
+    .navlinks a:hover{color:#fff}
+    .nav-cta{
+      padding:10px 15px;
+      border:1px solid var(--line-strong);
+      border-radius:999px;
+      color:#fff!important;
+      background:rgba(255,255,255,.03);
+    }
+
+    /* hero */
+    .hero{
+      min-height:100svh;
+      display:flex;
+      align-items:flex-end;
+      padding:120px 0 48px;
+    }
+    .hero-grid{
+      width:100%;
+      display:grid;
+      grid-template-columns:1fr 330px;
+      gap:54px;
+      align-items:end;
+    }
+    .hero-role{
+      margin-bottom:24px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#c8d4e2;
+      font-weight:700;
+    }
+    .hero-role::before{
+      content:"";
+      width:34px;height:1px;
+      background:var(--blue);
+    }
+    .gradient-word{
+      background:linear-gradient(90deg,#fff 0%,#bdd7ff 45%,#9ef2ff 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero-copy{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:28px;
+      align-items:end;
+    }
+    .hero-copy p{
+      margin:0;
+      max-width:720px;
+      color:#b4c0ce;
+      font-size:1.13rem;
+    }
+    .hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 17px;
+      border-radius:999px;
+      border:1px solid var(--line-strong);
+      background:rgba(255,255,255,.025);
+      font-weight:750;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
+    .btn.primary{
+      background:#eef4ff;
+      color:#07101e;
+      border-color:#eef4ff;
+    }
+
+    .hero-side{
+      display:grid;
+      gap:14px;
+    }
+    .mini-card{
+      padding:20px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+      box-shadow:var(--shadow);
+    }
+    .mini-label{
+      color:var(--muted);
+      font-size:.74rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-bottom:10px;
+    }
+    .status{
+      display:flex;align-items:center;gap:9px;
+      font-weight:700;
+    }
+    .status i{
+      width:9px;height:9px;border-radius:50%;
+      background:var(--lime);
+      box-shadow:0 0 22px rgba(183,255,112,.45);
+    }
+    .stat-number{
+      font-size:2.1rem;
+      line-height:1;
+      font-weight:800;
+      letter-spacing:-.06em;
+    }
+    .stat-sub{color:var(--muted);font-size:.88rem;margin-top:6px}
+
+    .hero-foot{
+      grid-column:1 / -1;
+      margin-top:46px;
+      padding-top:22px;
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    /* manifesto strip */
+    .manifesto{
+      padding:48px 0;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.018);
+    }
+    .manifesto-grid{
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:54px;
+      align-items:start;
+    }
+    .manifesto p{
+      margin:0;
+      max-width:860px;
+      font-size:clamp(1.6rem,3vw,2.8rem);
+      line-height:1.14;
+      letter-spacing:-.035em;
+      color:#e5ebf2;
+    }
+    .manifesto strong{color:#fff}
+
+    /* bento */
+    .bento{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:16px;
+      margin-top:34px;
+    }
+    .tile{
+      min-height:220px;
+      position:relative;
+      overflow:hidden;
+      padding:24px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.018));
+    }
+    .tile::after{
+      content:"";
+      position:absolute;
+      width:170px;height:170px;
+      right:-70px;bottom:-70px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(110,168,255,.16),transparent 66%);
+      pointer-events:none;
+    }
+    .tile.big{grid-column:span 7;min-height:350px}
+    .tile.tall{grid-column:span 5;min-height:350px}
+    .tile.third{grid-column:span 4}
+    .tile.half{grid-column:span 6}
+    .tile .num{
+      position:absolute;
+      top:18px;right:20px;
+      color:rgba(255,255,255,.17);
+      font-size:4rem;
+      font-weight:800;
+      letter-spacing:-.06em;
+    }
+    .tile p{color:var(--muted);max-width:520px}
+    .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+    .chip{
+      padding:7px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(255,255,255,.025);
+      color:#cbd6e4;
+      font-size:.82rem;
+    }
+
+    /* case feature */
+    .case-shell{
+      margin-top:36px;
+      border:1px solid var(--line);
+      border-radius:32px;
+      overflow:hidden;
+      background:
+        linear-gradient(150deg,rgba(110,168,255,.08),transparent 34%),
+        #0a0f15;
+      box-shadow:var(--shadow);
+    }
+    .case-top{
+      padding:34px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:24px;
+      border-bottom:1px solid var(--line);
+    }
+    .case-title{font-size:clamp(2rem,4vw,3.6rem);margin:0 0 10px;letter-spacing:-.045em}
+    .case-top p{margin:0;max-width:740px;color:#b6c2cf}
+    .case-badge{
+      align-self:start;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(183,255,112,.26);
+      background:rgba(183,255,112,.07);
+      color:#ceffa1;
+      font-size:.82rem;
+      font-weight:800;
+    }
+
+    .case-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      min-height:540px;
+    }
+    .case-copy{
+      padding:34px;
+      border-right:1px solid var(--line);
+    }
+    .case-list{display:grid;gap:12px;margin-top:26px}
+    .case-item{
+      display:grid;
+      grid-template-columns:44px 1fr;
+      gap:14px;
+      padding:15px 0;
+      border-top:1px solid var(--line);
+    }
+    .case-item:first-child{border-top:0}
+    .case-index{
+      color:var(--blue);
+      font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size:.84rem;
+      padding-top:3px;
+    }
+    .case-item p{margin:3px 0 0;color:var(--muted)}
+    .arch-panel{
+      position:relative;
+      padding:28px;
+      background:
+        linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px),
+        #0b1118;
+      background-size:28px 28px;
+      min-height:100%;
+    }
+    .arch-label{
+      color:var(--muted);
+      font-size:.74rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-weight:800;
+      margin-bottom:22px;
+    }
+    .arch-flow{display:grid;gap:10px}
+    .node{
+      padding:15px 16px;
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:15px;
+      background:rgba(7,10,15,.84);
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
+    }
+    .node strong{display:block;font-size:.94rem}
+    .node span{color:var(--muted);font-size:.82rem}
+    .arrow{
+      text-align:center;
+      color:var(--cyan);
+      font-family:ui-monospace,monospace;
+      font-size:.82rem;
+      letter-spacing:.08em;
+    }
+    .nodes-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:9px;
+    }
+
+    /* selected problems */
+    .problems{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+      margin-top:32px;
+    }
+    .problem{
+      padding:26px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:var(--panel);
+    }
+    .problem .tag{
+      display:inline-block;
+      margin-bottom:30px;
+      color:var(--blue);
+      font-size:.76rem;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+    .problem h3{
+      font-size:1.45rem;
+      letter-spacing:-.035em;
+      margin-bottom:12px;
+    }
+    .problem p{color:var(--muted);margin-bottom:0}
+
+    /* timeline */
+    .timeline{margin-top:34px;border-top:1px solid var(--line)}
+    .job{
+      display:grid;
+      grid-template-columns:160px 260px 1fr;
+      gap:26px;
+      padding:26px 0;
+      border-bottom:1px solid var(--line);
+      align-items:start;
+    }
+    .job time{color:var(--muted);font-size:.9rem}
+    .job-company{font-weight:800}
+    .job-role{color:#d8e0ea}
+    .job p{margin:0;color:var(--muted)}
+
+    /* projects */
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+      margin-top:34px;
+    }
+    .project-card{
+      min-height:300px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:28px;
+      background:
+        linear-gradient(145deg,rgba(168,137,255,.06),transparent 42%),
+        var(--panel);
+    }
+    .project-card h3{font-size:1.9rem;letter-spacing:-.04em}
+    .project-card p{color:var(--muted);max-width:520px}
+    .project-links{display:flex;gap:16px;font-weight:750;color:#d6e6ff}
+    .project-links a:hover{color:#fff}
+
+    /* credentials */
+    .cred-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:16px;
+      margin-top:34px;
+    }
+    .cred{
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:var(--panel);
+    }
+    .cred-row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+      border-top:1px solid var(--line);
+    }
+    .cred-row:first-of-type{border-top:0}
+    .cred-row span{color:var(--muted)}
+
+    /* contact */
+    .contact{
+      padding:120px 0 80px;
+    }
+    .contact-box{
+      padding:42px;
+      border:1px solid var(--line);
+      border-radius:32px;
+      background:
+        radial-gradient(500px 260px at 100% 0%, rgba(110,168,255,.15), transparent 58%),
+        var(--panel);
+    }
+    .contact-box h2{max-width:760px}
+    .contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+
+    footer{
+      padding:30px 0 46px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+    .reveal{
+      opacity:0;
+      transform:translateY(16px);
+      transition:opacity .6s ease, transform .6s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:none;
+    }
+
+    @media(max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .hero-side{grid-template-columns:repeat(3,1fr)}
+      .manifesto-grid{grid-template-columns:1fr}
+      .tile.big,.tile.tall,.tile.third,.tile.half{grid-column:span 12}
+      .case-grid{grid-template-columns:1fr}
+      .case-copy{border-right:0;border-bottom:1px solid var(--line)}
+      .job{grid-template-columns:130px 220px 1fr}
+    }
+
+    @media(max-width:760px){
+      .navlinks a:not(.nav-cta){display:none}
+      .hero{min-height:auto;padding-top:120px}
+      .hero-copy{grid-template-columns:1fr}
+      .hero-side{grid-template-columns:1fr}
+      .hero-foot{flex-direction:column}
+      .problems,.project-grid,.cred-grid{grid-template-columns:1fr}
+      .job{grid-template-columns:1fr;gap:7px}
+      .nodes-3{grid-template-columns:1fr}
+      .case-top{grid-template-columns:1fr}
+      .contact-box{padding:28px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <div class="wrap topbar-inner">
+      <a href="#top" class="mark"><span class="mark-dot"></span> Victor Dias</a>
+      <nav class="navlinks">
+        <a href="#invariant">Invariant</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#stack">Stack</a>
+        <a class="nav-cta" href="/cv.pdf">Currículo ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-role">Security & Platform Engineer</div>
+          <h1>
+            Segurança que <span class="gradient-word">vira sistema.</span>
+          </h1>
+
+          <div class="hero-copy">
+            <p>
+              Construo produtos e infraestrutura onde backend, Linux, automação
+              e segurança precisam funcionar juntos — do código ao ambiente de produção.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#invariant">Ver case principal</a>
+              <a class="btn" href="mailto:victordg0223@gmail.com">Contato</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side">
+          <div class="mini-card">
+            <div class="mini-label">Status</div>
+            <div class="status"><i></i> Aberto a oportunidades</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-label">Atual</div>
+            <div style="font-weight:800">Founder @ Invariant Security</div>
+            <div class="stat-sub">Security & Platform Engineering</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-label">Certificações</div>
+            <div style="font-weight:800">AWS CCP · Cisco CyberOps</div>
+            <div class="stat-sub">São Paulo, Brasil</div>
+          </div>
+        </aside>
+
+        <div class="hero-foot">
+          <span>Linux · Docker · Python · FastAPI · PostgreSQL · CI/CD</span>
+          <span>Security by design · Platform engineering · Backend</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto">
+      <div class="wrap manifesto-grid">
+        <p class="kicker">Princípio de trabalho</p>
+        <p>
+          Não trato segurança como uma etapa final.
+          <strong>Ela precisa existir na arquitetura, na entrega e na operação.</strong>
+        </p>
+      </div>
+    </section>
+
+    <section id="stack" class="section compact reveal">
+      <div class="wrap">
+        <p class="kicker">Onde eu atuo</p>
+        <h2>Uma stack que atravessa produto, plataforma e segurança.</h2>
+
+        <div class="bento">
+          <article class="tile big">
+            <span class="num">01</span>
+            <h3>Platform Engineering</h3>
+            <p>
+              Operação de aplicações, isolamento de workloads, reverse proxy,
+              systemd, ambientes separados e troubleshooting de infraestrutura.
+            </p>
+            <div class="chip-row">
+              <span class="chip">Linux</span><span class="chip">Docker</span>
+              <span class="chip">Docker Compose</span><span class="chip">LXD/LXC</span>
+              <span class="chip">Nginx</span><span class="chip">systemd</span>
+              <span class="chip">SSH</span><span class="chip">DNS/TLS</span>
+            </div>
+          </article>
+
+          <article class="tile tall">
+            <span class="num">02</span>
+            <h3>Security Engineering</h3>
+            <p>
+              Hardening, assessment, incident response, firewalling e decisões
+              de arquitetura voltadas para redução de superfície de risco.
+            </p>
+            <div class="chip-row">
+              <span class="chip">CIS Benchmarks</span><span class="chip">UFW</span>
+              <span class="chip">iptables/nftables</span><span class="chip">CyberArk</span>
+              <span class="chip">Gigamon</span><span class="chip">Netskope</span>
+            </div>
+          </article>
+
+          <article class="tile third">
+            <span class="num">03</span>
+            <h3>Backend</h3>
+            <p>APIs, automações, persistência e integração entre serviços.</p>
+            <div class="chip-row">
+              <span class="chip">Python</span><span class="chip">FastAPI</span>
+              <span class="chip">PostgreSQL</span><span class="chip">SQLAlchemy</span>
+            </div>
+          </article>
+
+          <article class="tile third">
+            <span class="num">04</span>
+            <h3>Delivery</h3>
+            <p>Fluxos de promoção, testes automatizados e proteção contra regressões.</p>
+            <div class="chip-row">
+              <span class="chip">GitHub Actions</span><span class="chip">CI/CD</span>
+              <span class="chip">pytest</span><span class="chip">Vitest</span>
+            </div>
+          </article>
+
+          <article class="tile third">
+            <span class="num">05</span>
+            <h3>Cloud & Infra</h3>
+            <p>Assessments AWS e fundamentos de infraestrutura cloud.</p>
+            <div class="chip-row">
+              <span class="chip">EC2</span><span class="chip">VPC</span>
+              <span class="chip">IAM</span><span class="chip">S3</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="invariant" class="section reveal">
+      <div class="wrap">
+        <p class="kicker">Case principal</p>
+        <h2>Invariant Security</h2>
+        <p class="lead" style="margin-top:18px">
+          Produto em validação de mercado para assessment, evidência e
+          rastreabilidade de segurança em hosts Linux e containers Docker.
+        </p>
+
+        <div class="case-shell">
+          <div class="case-top">
+            <div>
+              <h3 class="case-title">Compliance técnico com evidência real.</h3>
+              <p>
+                A plataforma executa assessments reais, cruza resultados com
+                controles CIS e entrega findings estruturados para análise técnica
+                e executiva.
+              </p>
+            </div>
+            <div class="case-badge">~199 checks CIS / target</div>
+          </div>
+
+          <div class="case-grid">
+            <div class="case-copy">
+              <div class="case-list">
+                <div class="case-item">
+                  <div class="case-index">01</div>
+                  <div>
+                    <h3>Assessment Engine</h3>
+                    <p>Hosts via SSH/Paramiko e containers via <code>docker exec</code>, sem persistência das credenciais de avaliação.</p>
+                  </div>
+                </div>
+
+                <div class="case-item">
+                  <div class="case-index">02</div>
+                  <div>
+                    <h3>Arquitetura distribuída</h3>
+                    <p>Serviços FastAPI stateless, comunicação REST síncrona e persistência centralizada em PostgreSQL.</p>
+                  </div>
+                </div>
+
+                <div class="case-item">
+                  <div class="case-index">03</div>
+                  <div>
+                    <h3>Demo Lab isolado</h3>
+                    <p>Infraestrutura fictícia dedicada, elegibilidade controlada no backend e mecanismos contra vazamento de identificadores reais.</p>
+                  </div>
+                </div>
+
+                <div class="case-item">
+                  <div class="case-index">04</div>
+                  <div>
+                    <h3>Dev → Staging → Production</h3>
+                    <p>Ambientes fisicamente separados, GitHub Actions e testes de regressão integrados ao fluxo de entrega.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside class="arch-panel">
+              <div class="arch-label">Arquitetura simplificada</div>
+              <div class="arch-flow">
+                <div class="node">
+                  <strong>React Frontend</strong>
+                  <span>Interface web</span>
+                </div>
+                <div class="arrow">↓ REST</div>
+                <div class="node">
+                  <strong>Invariant API · FastAPI</strong>
+                  <span>Orquestração · regras · persistência</span>
+                </div>
+                <div class="arrow">↓ HTTP interno</div>
+                <div class="nodes-3">
+                  <div class="node"><strong>Assessment</strong><span>CIS checks</span></div>
+                  <div class="node"><strong>Ingestion</strong><span>Normalize</span></div>
+                  <div class="node"><strong>Discovery</strong><span>Fingerprint</span></div>
+                </div>
+                <div class="arrow">↓</div>
+                <div class="node">
+                  <strong>PostgreSQL</strong>
+                  <span>Acesso centralizado pela API</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact reveal">
+      <div class="wrap">
+        <p class="kicker">Engineering notes</p>
+        <h2>Os problemas difíceis são a parte mais interessante.</h2>
+
+        <div class="problems">
+          <article class="problem">
+            <span class="tag">Root cause analysis</span>
+            <h3>UFW, Docker e drift de firewall</h3>
+            <p>
+              Investiguei uma interação que removia regras customizadas em
+              <code>DOCKER-USER</code> e implementei reconciliação idempotente
+              com scripts e systemd para restaurar o estado esperado.
+            </p>
+          </article>
+
+          <article class="problem">
+            <span class="tag">Security by design</span>
+            <h3>Demo sem depender de sanitização posterior</h3>
+            <p>
+              Em vez de usar infraestrutura real e tentar remover dados sensíveis
+              depois, a demo opera sobre infraestrutura fictícia criada para esse fim.
+            </p>
+          </article>
+
+          <article class="problem">
+            <span class="tag">Architecture</span>
+            <h3>Separação por responsabilidade e runtime</h3>
+            <p>
+              A decomposição da solução priorizou compatibilidade de dependências,
+              isolamento de workloads e contratos simples entre serviços.
+            </p>
+          </article>
+
+          <article class="problem">
+            <span class="tag">Delivery</span>
+            <h3>Regressão como parte da correção</h3>
+            <p>
+              Falhas descobertas em validação são reproduzidas em testes antes da
+              correção e preservadas na suíte para reduzir recorrência.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia" class="section reveal">
+      <div class="wrap">
+        <p class="kicker">Experiência</p>
+        <h2>Trajetória cronológica.</h2>
+
+        <div class="timeline">
+          <article class="job">
+            <time>Jul/2026 → atual</time>
+            <div>
+              <div class="job-company">Invariant Security</div>
+              <div class="job-role">Founder | Security & Platform Engineer</div>
+            </div>
+            <p>Produto, backend, infraestrutura, segurança, CI/CD e operação da plataforma.</p>
+          </article>
+
+          <article class="job">
+            <time>Mai/2025 → Mai/2026</time>
+            <div>
+              <div class="job-company">Mares Comercial</div>
+              <div class="job-role">Analista de E-commerce</div>
+            </div>
+            <p></p>
+          </article>
+
+          <article class="job">
+            <time>Mai/2024 → Fev/2025</time>
+            <div>
+              <div class="job-company">Foundever Brasil</div>
+              <div class="job-role">Analista de Atendimento Bilíngue</div>
+            </div>
+            <p></p>
+          </article>
+
+          <article class="job">
+            <time>Dez/2022 → Nov/2023</time>
+            <div>
+              <div class="job-company">Dfense Security</div>
+              <div class="job-role">Analista de Desenvolvimento de Sistemas</div>
+            </div>
+            <p>Automações em Python/Shell, integrações com CyberArk, Gigamon e Netskope, assessments AWS e atividades de segurança em Linux/Windows.</p>
+          </article>
+
+          <article class="job">
+            <time>Abr/2022 → Dez/2022</time>
+            <div>
+              <div class="job-company">T-Systems</div>
+              <div class="job-role">Segurança da Informação · SOC N1</div>
+            </div>
+            <p>Monitoramento de incidentes, crises, chamados de SOC, criptografia, compliance e LGPD.</p>
+          </article>
+
+          <article class="job">
+            <time>Out/2021 → Mar/2022</time>
+            <div>
+              <div class="job-company">Flipside</div>
+              <div class="job-role">Estagiário de TI</div>
+            </div>
+            <p>Usuários, ativos, acessos e automações em Python com APIs REST.</p>
+          </article>
+
+          <article class="job">
+            <time>Dez/2019 → Out/2020</time>
+            <div>
+              <div class="job-company">Stefanini</div>
+              <div class="job-role">Analista de Suporte de TI</div>
+            </div>
+            <p>Suporte N1/N2, redes, VPN, estações e serviços em ambiente corporativo de alta criticidade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos" class="section compact reveal">
+      <div class="wrap">
+        <p class="kicker">Projetos em produção</p>
+        <h2>Além da Invariant.</h2>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div>
+              <p class="kicker" style="margin-bottom:12px">Python · FastAPI · PostgreSQL</p>
+              <h3>Amanuense</h3>
+              <p>
+                Pipeline de processamento de documentos com FastAPI, SQLAlchemy,
+                Alembic, PyMuPDF/pdfplumber, OCR e testes automatizados.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="#">Projeto ↗</a>
+              <a href="#">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <p class="kicker" style="margin-bottom:12px">Node.js · PostgreSQL · Docker</p>
+              <h3>EstudeiOAB</h3>
+              <p>
+                Aplicação em produção com backend Node/Express, autenticação JWT,
+                testes Jest/Supertest e deploy em VPS com Docker, Nginx e GitHub Actions.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="#">Projeto ↗</a>
+              <a href="#">GitHub ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact reveal">
+      <div class="wrap">
+        <p class="kicker">Formação & certificações</p>
+        <h2>Base técnica formal.</h2>
+
+        <div class="cred-grid">
+          <div class="cred">
+            <h3>Formação</h3>
+            <div class="cred-row">
+              <strong>Defesa Cibernética · FIAP</strong>
+              <span>2023</span>
+            </div>
+            <div class="cred-row">
+              <strong>Análise e Desenvolvimento de Sistemas · ENIAC</strong>
+              <span>2020</span>
+            </div>
+          </div>
+
+          <div class="cred">
+            <h3>Certificações</h3>
+            <div class="cred-row"><strong>AWS Certified Cloud Practitioner</strong></div>
+            <div class="cred-row"><strong>Cisco CyberOps Associate</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact reveal" id="contato">
+      <div class="wrap">
+        <div class="contact-box">
+          <p class="kicker">Contato</p>
+          <h2>Se a vaga exige alguém que entende código, infraestrutura e segurança no mesmo contexto, vale conversar.</h2>
+          <div class="contact-actions">
+            <a class="btn primary" href="mailto:victordg0223@gmail.com">Enviar e-mail</a>
+            <a class="btn" href="https://www.linkedin.com/in/victord-goncalves" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a class="btn" href="https://github.com/VictordgDev" target="_blank" rel="noopener">GitHub ↗</a>
+            <a class="btn" href="/cv.pdf">Currículo ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>© <span id="year"></span> Victor Dias Gonçalves</span>
+      <span>Security & Platform Engineer · São Paulo, Brasil</span>
+    </div>
+  </footer>
+
+  <script>
+    const topbar = document.getElementById('topbar');
+    const onScroll = () => topbar.classList.toggle('scrolled', window.scrollY > 12);
+    onScroll();
+    window.addEventListener('scroll', onScroll, {passive:true});
+
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.08});
+
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
