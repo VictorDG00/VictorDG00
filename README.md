@@ -1,32 +1,21 @@
-# Victor Dias Gonçalves
+<p align="center"><img src="readme/header.svg" alt="Victor Dias Gonçalves — Security &amp; Platform Engineer · São Paulo, BR" width="100%"></p>
 
-**Security & Platform Engineer** · São Paulo, Brazil
-[victordg.dev.br](https://victordg.dev.br) · [LinkedIn](https://www.linkedin.com/in/victord-goncalves/) · [Résumé](https://victordg.dev.br/cv) · [invariantsec.org](https://invariantsec.org)
+<p align="center">
+<a href="https://victordg.dev.br">victordg.dev.br</a> &nbsp;·&nbsp;
+<a href="https://victordg.dev.br/cv">Résumé</a> &nbsp;·&nbsp;
+<a href="https://www.linkedin.com/in/victord-goncalves/">LinkedIn</a> &nbsp;·&nbsp;
+<a href="https://invariantsec.org">invariantsec.org</a>
+</p>
 
-I build backend systems in Python/FastAPI and run the Linux, Kubernetes and CI/CD infrastructure underneath them, with security designed in from the first commit. Background in SOC, security automation and AWS assessments. Founder of **Invariant Security**.
+I build backend systems in Python/FastAPI and run the Linux, Kubernetes and CI/CD infrastructure underneath them, with security designed in from the first commit. Background in SOC, security automation and AWS assessments.
 
----
-
-## Invariant Security: main project
+<img src="readme/s1.svg" alt="01 / Main project — Invariant Security" width="100%">
 
 **CIS Benchmark assessment for Linux hosts and Docker containers.** Point it at an IP or CIDR range: it discovers and classifies hosts, runs ~200 CIS checks over SSH or `docker exec`, and returns PASS/FAIL per control **with the evidence behind each result**, exportable as a PDF report. It runs as SaaS and as an on-prem appliance (`.deb` + systemd) that reports usage to a central licensing service, which only ever receives HMAC-hashed host identifiers, never assessment data.
 
 I designed, built and operate the whole thing: code, pipelines and the cluster it runs on.
 
-```mermaid
-flowchart LR
-    U[Browser] --> CF[Cloudflare] --> NX[nginx edge]
-    NX --> FE[frontend<br/>React SPA]
-    NX --> API[api<br/>FastAPI control plane]
-    API --> PG[(PostgreSQL 16)]
-    API -->|bearer per service| AS[assessment<br/>CIS engine]
-    API -->|bearer per service| DI[discovery<br/>socket fingerprinting]
-    API -->|bearer per service| IN[ingestion<br/>CIS PDF → controls]
-    AS -->|SSH / docker exec| T[Target hosts<br/>& containers]
-    DI -->|TCP / banners / TLS| T
-    APL[On-prem appliance] -->|signed license sync| LIC[licensing<br/>FastAPI + Postgres]
-    C[[contracts<br/>versioned Pydantic models]] -.-> API & AS & DI & IN & LIC
-```
+<p align="center"><img src="readme/architecture.svg" alt="Invariant Security architecture: React frontend → FastAPI control plane → PostgreSQL; the API calls assessment, ingestion and discovery with one token per service; on-prem appliance syncs signed licenses with the licensing service." width="100%"></p>
 
 | Layer | Stack |
 |---|---|
@@ -50,20 +39,16 @@ flowchart LR
 
 Public repos: [assessment](https://github.com/Invariant-Security/invariant_assessment) · [discovery](https://github.com/Invariant-Security/invariant_discovery) · [ingestion](https://github.com/Invariant-Security/invariant_ingestion) · [contracts](https://github.com/Invariant-Security/invariant_contracts) · [packaging](https://github.com/Invariant-Security/invariant_packaging). The api, frontend and licensing services are private.
 
----
+<img src="readme/s2.svg" alt="02 / Side projects — Other work" width="100%">
 
-## Other projects
+**[k3s-platform](https://github.com/VictorDG00/k3s-platform)**: sanitized reference of the single-node k3s platform behind my projects: checksum-verified bootstrap, sealed-secrets, default-deny NetworkPolicies, VictoriaMetrics/Loki/Grafana, and encrypted, immutable off-site backups with a restore runbook. *Terraform · k3s · Helm*
 
-**[Capataz](https://github.com/VictorDG00/Capataz)**: multi-agent DevSecOps orchestrator. An architect agent plans, a worker agent executes, and an inspector runs SAST (Bandit) before anything is pushed. *Python · LangGraph · FastAPI · Docker*
+**[Capataz](https://github.com/VictorDG00/Capataz)**: multi-agent DevSecOps orchestrator. Architect, developer and integrator agents work in a LangGraph loop; a non-LLM validator gates every sprint with pytest and Bandit (SAST) before opening a PR. LLM provider is configurable per role. *Python · LangGraph · FastAPI*
 
 **[Amanuense](https://github.com/ForjaDosDias/Amanuense2)**: turns Brazilian financial regulation PDFs (Central Bank / Pix) into a navigable knowledge graph with an LLM extraction pipeline. *Python · FastAPI · PostgreSQL · Alembic · D3.js · pytest*
 
-<!-- sevicodezap: add after the public-readiness fixes (Phase 4) -->
-<!-- infra showcase: add when the sanitized repo is published (Phase 5) -->
 
----
-
-## Toolbox
+<img src="readme/s3.svg" alt="03 / Day-to-day tools — Stack and operations" width="100%">
 
 ```
 Platform     Linux · k3s/Kubernetes · Terraform · Docker · LXD · nginx · systemd · Cloudflare
@@ -73,10 +58,12 @@ Delivery     GitHub Actions · GHCR · pytest · Vitest · Ruff · mypy
 Observability VictoriaMetrics · Loki · Grafana
 ```
 
-## Background
+<img src="readme/s4.svg" alt="04 / Experience and education — Background" width="100%">
 
 - **Invariant Security**, Founder & Security/Platform Engineer *(2026 – present)*
 - **Dfense Security**, Systems Analyst: security automation (Python/Shell) integrating CyberArk, Gigamon and Netskope; AWS assessments *(2022 – 2023)*
 - **T-Systems**, SOC L1 intern: incident monitoring, LGPD and crypto controls *(2022)*
 - **FIAP**, Cyber Defense (1st place at CTF NEXT 2022 and the Banco Carrefour challenge) · **ENIAC**, Systems Analysis & Development
 - Cisco CyberOps Associate · AWS Certified Cloud Practitioner
+
+<p align="right"><sub>Same content as <a href="https://victordg.dev.br">victordg.dev.br</a> · updated Nov 2026</sub></p>

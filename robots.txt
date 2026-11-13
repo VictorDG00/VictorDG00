@@ -1,5 +1,5 @@
 # robots.txt — victordg.dev.br
-# Victor Dias Gonçalves | AI Engineer & DevSecOps
+# Victor Dias Gonçalves | Security & Platform Engineer
 
 # Permitir todos os crawlers de busca
 User-agent: *
