@@ -65,7 +65,7 @@ Public repos: [assessment](https://github.com/Invariant-Security/invariant_asses
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="readme/stack-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="readme/stack-light.svg">
-  <img src="readme/stack-dark.svg" alt="Stack: Linux, k3s, Kubernetes, Terraform, Docker, nginx, systemd, Cloudflare; CIS Benchmarks, hardening, nftables, SAST, gitleaks, sealed-secrets, incident response; Python, FastAPI, Pydantic, PostgreSQL, SQLAlchemy, Alembic, React, Go; GitHub Actions, GHCR, pytest, Vitest, Ruff, mypy; VictoriaMetrics, Grafana, Loki, Alloy." width="100%">
+  <img src="readme/stack-dark.svg" alt="Stack (favorites first: Terraform, Kubernetes, Hardening, Python, Jenkins, Grafana): Linux, Docker, nginx, systemd, Cloudflare; CIS Benchmarks, nftables, SAST, gitleaks, sealed-secrets, incident response; JavaScript, Go, FastAPI, Pydantic, PostgreSQL, SQLAlchemy, Alembic; GitHub Actions, GHCR, pytest, Vitest, Ruff, mypy; VictoriaMetrics, Loki, Alloy." width="100%">
 </picture>
 </p>
 
