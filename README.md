@@ -2,7 +2,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="readme/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="readme/hero-light.svg">
-  <img src="readme/hero-dark.svg" alt="Victor Dias Gonçalves, Security &amp; Platform Engineer. Animated terminal running a CIS assessment with Invariant." width="100%">
+  <img src="readme/hero-dark.svg" alt="Victor Dias Gonçalves, Security &amp; Platform Engineer. Animated Invariant flow: discover hosts, assess CIS controls, report with evidence." width="100%">
 </picture>
 </p>
 
@@ -18,7 +18,7 @@ I build backend systems in Python/FastAPI and run the Linux, Kubernetes and CI/C
 ## Invariant Security
 <sub><code>MAIN PROJECT · OWN PRODUCT</code></sub>
 
-**CIS Benchmark assessment for Linux hosts and Docker containers.** Point it at an IP or CIDR range: it discovers and classifies hosts, runs ~200 CIS checks over SSH or `docker exec`, and returns PASS/FAIL per control **with the evidence behind each result**, exportable as a PDF report. It runs as SaaS and as an on-prem appliance (`.deb` + systemd) that reports usage to a central licensing service, which only ever receives HMAC-hashed host identifiers, never assessment data.
+**CIS Benchmark assessment for Linux hosts** (and Docker containers on-prem). Point it at an IP or CIDR range: it discovers and classifies hosts, runs ~200 CIS checks over SSH, and returns PASS/FAIL per control **with the evidence behind each result**, exportable as a PDF report. It runs as SaaS and as an on-prem appliance (`.deb` + systemd) that ships the same services. A central licensing service is in progress: Ed25519-signed licenses, and the appliance will only ever send HMAC-hashed host identifiers, never assessment data.
 
 I designed, built and operate the whole thing: code, pipelines and the cluster it runs on.
 
@@ -26,7 +26,7 @@ I designed, built and operate the whole thing: code, pipelines and the cluster i
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="readme/architecture-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="readme/architecture-light.svg">
-  <img src="readme/architecture-dark.svg" alt="Invariant Security architecture: React frontend → FastAPI control plane → PostgreSQL; the API calls assessment, ingestion and discovery with one token per service; on-prem appliance syncs signed licenses with the licensing service." width="100%">
+  <img src="readme/architecture-dark.svg" alt="Invariant Security architecture: Cloudflare and nginx at the edge serve the React SPA and proxy /api to the FastAPI control plane, the only service with a database; the API calls assessment, discovery and ingestion with one token per service; assessment reaches hosts over SSH. On-prem appliance ships the same services; licensing is in progress." width="100%">
 </picture>
 </p>
 
@@ -34,8 +34,8 @@ I designed, built and operate the whole thing: code, pipelines and the cluster i
 |---|---|
 | Services | Python 3.11, FastAPI, Pydantic, psycopg 3, Alembic, Paramiko, httpx, ReportLab |
 | Frontend | React 19, Vite, Vitest, Testing Library |
-| Licensing | FastAPI, SQLAlchemy 2, Ed25519-signed license certificates, append-only usage events |
-| CI/CD | GitHub Actions → images on GHCR, deployed by digest; feature → `dev` (auto-deploys staging) → `main` (gated, manual) |
+| Licensing *(in progress)* | FastAPI, SQLAlchemy 2, Ed25519-signed license certificates, append-only usage events |
+| CI/CD | GitHub Actions → images on GHCR; every deploy is a reviewed PR pinning the image digest in the infra repo, then applied. feature → `dev` (staging) → `main` (gated, manual merge) |
 | Platform | k3s, Terraform (kubernetes + helm providers, remote state), sealed-secrets, default-deny NetworkPolicies |
 | Observability | VictoriaMetrics, Loki, Grafana, Alloy, kube-state-metrics |
 | Ops | Encrypted, immutable off-site backups; nginx + Cloudflare at the edge; `.deb` packaging with systemd |
@@ -45,7 +45,7 @@ I designed, built and operate the whole thing: code, pipelines and the cluster i
 - **Test the real boundary.** Integration tests run against real PostgreSQL, real SSH targets and Debian/Ubuntu fixture containers, not mocks.
 - **Contracts first.** A shared contracts library, consumed by tag only; release candidates (`-rcN`) in staging, and promotion is blocked while any `-rc` pin remains.
 - **A gate before every promotion.** Contract → migration → tests → integration → staging smoke → regression → security review → tag.
-- **Safe deploys.** Migrations run before the container swap, so a failed migration leaves the old version serving; rollback to the previous image is one step.
+- **Safe deploys.** Migrations run in an init container before the new pod starts, so a failed migration leaves the old version serving; rollback is reverting one digest PR.
 - **Least privilege between services.** One token per service, and services refuse to start without it (fail-closed).
 - **Supply chain hygiene.** Locked dependencies, images and Helm charts pinned by digest/version, checksum-verified cluster install.
 - **Privacy by design.** LGPD records of processing written from the actual code and infrastructure.
