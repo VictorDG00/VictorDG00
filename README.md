@@ -1,4 +1,10 @@
-<p align="center"><img src="readme/header.svg" alt="Victor Dias Gonçalves — Security &amp; Platform Engineer · São Paulo, BR" width="100%"></p>
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/hero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="readme/hero-light.svg">
+  <img src="readme/hero-dark.svg" alt="Victor Dias Gonçalves, Security &amp; Platform Engineer. Animated terminal running a CIS assessment with Invariant." width="100%">
+</picture>
+</p>
 
 <p align="center">
 <a href="https://victordg.dev.br">victordg.dev.br</a> &nbsp;·&nbsp;
@@ -9,13 +15,20 @@
 
 I build backend systems in Python/FastAPI and run the Linux, Kubernetes and CI/CD infrastructure underneath them, with security designed in from the first commit. Background in SOC, security automation and AWS assessments.
 
-<img src="readme/s1.svg" alt="01 / Main project — Invariant Security" width="100%">
+## Invariant Security
+<sub><code>MAIN PROJECT · OWN PRODUCT</code></sub>
 
 **CIS Benchmark assessment for Linux hosts and Docker containers.** Point it at an IP or CIDR range: it discovers and classifies hosts, runs ~200 CIS checks over SSH or `docker exec`, and returns PASS/FAIL per control **with the evidence behind each result**, exportable as a PDF report. It runs as SaaS and as an on-prem appliance (`.deb` + systemd) that reports usage to a central licensing service, which only ever receives HMAC-hashed host identifiers, never assessment data.
 
 I designed, built and operate the whole thing: code, pipelines and the cluster it runs on.
 
-<p align="center"><img src="readme/architecture.svg" alt="Invariant Security architecture: React frontend → FastAPI control plane → PostgreSQL; the API calls assessment, ingestion and discovery with one token per service; on-prem appliance syncs signed licenses with the licensing service." width="100%"></p>
+<p align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="readme/architecture-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="readme/architecture-light.svg">
+  <img src="readme/architecture-dark.svg" alt="Invariant Security architecture: React frontend → FastAPI control plane → PostgreSQL; the API calls assessment, ingestion and discovery with one token per service; on-prem appliance syncs signed licenses with the licensing service." width="100%">
+</picture>
+</p>
 
 | Layer | Stack |
 |---|---|
@@ -39,7 +52,8 @@ I designed, built and operate the whole thing: code, pipelines and the cluster i
 
 Public repos: [assessment](https://github.com/Invariant-Security/invariant_assessment) · [discovery](https://github.com/Invariant-Security/invariant_discovery) · [ingestion](https://github.com/Invariant-Security/invariant_ingestion) · [contracts](https://github.com/Invariant-Security/invariant_contracts) · [packaging](https://github.com/Invariant-Security/invariant_packaging). The api, frontend and licensing services are private.
 
-<img src="readme/s2.svg" alt="02 / Side projects — Other work" width="100%">
+## Other work
+<sub><code>SIDE PROJECTS</code></sub>
 
 **[k3s-platform](https://github.com/VictorDG00/k3s-platform)**: sanitized reference of the single-node k3s platform behind my projects: checksum-verified bootstrap, sealed-secrets, default-deny NetworkPolicies, VictoriaMetrics/Loki/Grafana, and encrypted, immutable off-site backups with a restore runbook. *Terraform · k3s · Helm*
 
@@ -47,18 +61,24 @@ Public repos: [assessment](https://github.com/Invariant-Security/invariant_asses
 
 **[Amanuense](https://github.com/ForjaDosDias/Amanuense2)**: turns Brazilian financial regulation PDFs (Central Bank / Pix) into a navigable knowledge graph with an LLM extraction pipeline. *Python · FastAPI · PostgreSQL · Alembic · D3.js · pytest*
 
+## Stack
 
-<img src="readme/s3.svg" alt="03 / Day-to-day tools — Stack and operations" width="100%">
+<sub><code>PLATFORM</code></sub><br>
+<img src="https://img.shields.io/badge/Linux-151614?style=flat-square&logo=linux&logoColor=d3be93" alt="Linux"> <img src="https://img.shields.io/badge/k3s-151614?style=flat-square&logo=k3s&logoColor=d3be93" alt="k3s"> <img src="https://img.shields.io/badge/Kubernetes-151614?style=flat-square&logo=kubernetes&logoColor=d3be93" alt="Kubernetes"> <img src="https://img.shields.io/badge/Terraform-151614?style=flat-square&logo=terraform&logoColor=d3be93" alt="Terraform"> <img src="https://img.shields.io/badge/Docker-151614?style=flat-square&logo=docker&logoColor=d3be93" alt="Docker"> <img src="https://img.shields.io/badge/nginx-151614?style=flat-square&logo=nginx&logoColor=d3be93" alt="nginx"> <img src="https://img.shields.io/badge/systemd-151614?style=flat-square" alt="systemd"> <img src="https://img.shields.io/badge/Cloudflare-151614?style=flat-square&logo=cloudflare&logoColor=d3be93" alt="Cloudflare">
 
-```
-Platform     Linux · k3s/Kubernetes · Terraform · Docker · LXD · nginx · systemd · Cloudflare
-Security     CIS Benchmarks · Linux hardening · iptables/nftables · UFW · SAST · incident response
-Backend      Python · FastAPI · Pydantic · PostgreSQL · SQLAlchemy · Alembic · Go · Node.js
-Delivery     GitHub Actions · GHCR · pytest · Vitest · Ruff · mypy
-Observability VictoriaMetrics · Loki · Grafana
-```
+<sub><code>SECURITY</code></sub><br>
+<img src="https://img.shields.io/badge/CIS%20Benchmarks-151614?style=flat-square" alt="CIS Benchmarks"> <img src="https://img.shields.io/badge/Linux%20hardening-151614?style=flat-square" alt="Linux hardening"> <img src="https://img.shields.io/badge/nftables%20/%20UFW-151614?style=flat-square" alt="nftables / UFW"> <img src="https://img.shields.io/badge/SAST%20%C2%B7%20Bandit-151614?style=flat-square" alt="SAST · Bandit"> <img src="https://img.shields.io/badge/gitleaks-151614?style=flat-square" alt="gitleaks"> <img src="https://img.shields.io/badge/sealed--secrets-151614?style=flat-square" alt="sealed-secrets"> <img src="https://img.shields.io/badge/Incident%20response-151614?style=flat-square" alt="Incident response">
 
-<img src="readme/s4.svg" alt="04 / Experience and education — Background" width="100%">
+<sub><code>BACKEND</code></sub><br>
+<img src="https://img.shields.io/badge/Python-151614?style=flat-square&logo=python&logoColor=d3be93" alt="Python"> <img src="https://img.shields.io/badge/FastAPI-151614?style=flat-square&logo=fastapi&logoColor=d3be93" alt="FastAPI"> <img src="https://img.shields.io/badge/Pydantic-151614?style=flat-square&logo=pydantic&logoColor=d3be93" alt="Pydantic"> <img src="https://img.shields.io/badge/PostgreSQL-151614?style=flat-square&logo=postgresql&logoColor=d3be93" alt="PostgreSQL"> <img src="https://img.shields.io/badge/SQLAlchemy-151614?style=flat-square&logo=sqlalchemy&logoColor=d3be93" alt="SQLAlchemy"> <img src="https://img.shields.io/badge/Alembic-151614?style=flat-square" alt="Alembic"> <img src="https://img.shields.io/badge/React-151614?style=flat-square&logo=react&logoColor=d3be93" alt="React"> <img src="https://img.shields.io/badge/Go-151614?style=flat-square&logo=go&logoColor=d3be93" alt="Go">
+
+<sub><code>DELIVERY</code></sub><br>
+<img src="https://img.shields.io/badge/GitHub%20Actions-151614?style=flat-square&logo=githubactions&logoColor=d3be93" alt="GitHub Actions"> <img src="https://img.shields.io/badge/GHCR-151614?style=flat-square&logo=github&logoColor=d3be93" alt="GHCR"> <img src="https://img.shields.io/badge/pytest-151614?style=flat-square&logo=pytest&logoColor=d3be93" alt="pytest"> <img src="https://img.shields.io/badge/Vitest-151614?style=flat-square&logo=vitest&logoColor=d3be93" alt="Vitest"> <img src="https://img.shields.io/badge/Ruff-151614?style=flat-square&logo=ruff&logoColor=d3be93" alt="Ruff"> <img src="https://img.shields.io/badge/mypy-151614?style=flat-square" alt="mypy">
+
+<sub><code>OBSERVABILITY</code></sub><br>
+<img src="https://img.shields.io/badge/VictoriaMetrics-151614?style=flat-square&logo=victoriametrics&logoColor=d3be93" alt="VictoriaMetrics"> <img src="https://img.shields.io/badge/Grafana-151614?style=flat-square&logo=grafana&logoColor=d3be93" alt="Grafana"> <img src="https://img.shields.io/badge/Loki-151614?style=flat-square" alt="Loki"> <img src="https://img.shields.io/badge/Alloy-151614?style=flat-square" alt="Alloy">
+
+## Background
 
 - **Invariant Security**, Founder & Security/Platform Engineer *(2026 – present)*
 - **Dfense Security**, Systems Analyst: security automation (Python/Shell) integrating CyberArk, Gigamon and Netskope; AWS assessments *(2022 – 2023)*
