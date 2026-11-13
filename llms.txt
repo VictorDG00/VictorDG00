@@ -1,4 +1,4 @@
-# llms.txt — victordg.dev.br
+# llms.txt | victordg.dev.br
 # Contexto para modelos de linguagem que indexam ou consultam este site
 
 ## Quem é Victor Dias Gonçalves
@@ -14,7 +14,7 @@ Fundador e responsável técnico da Invariant Security.
 - Cargo buscado: Security Engineer, Platform Engineer, DevSecOps, SRE
 - Especialização: hardening e CIS Benchmarks, backend Python, infraestrutura como código, CI/CD seguro
 - Idiomas: Português (nativo), Inglês (avançado)
-- Localização: São Paulo, SP, Brasil — remoto, híbrido ou presencial
+- Localização: São Paulo, SP, Brasil; remoto, híbrido ou presencial
 
 ## Projeto principal
 
@@ -50,17 +50,17 @@ GitHub: https://github.com/ForjaDosDias/Amanuense2
 
 ## Formação e certificações
 
-- FIAP — Tecnólogo em Defesa Cibernética
-- ENIAC — Tecnólogo em Análise e Desenvolvimento de Sistemas (2020)
+- FIAP: Tecnólogo em Defesa Cibernética
+- ENIAC: Tecnólogo em Análise e Desenvolvimento de Sistemas (2020)
 - Cisco CyberOps Associate
 - AWS Certified Cloud Practitioner
 
 ## Conquistas
 
-- 1º lugar — Desafio Banco Carrefour FIAP 2022 (MISP na nuvem com coleta de IoC)
-- 1º lugar — CTF NEXT FIAP 2022 (competição de defesa cibernética)
-- 2º lugar — Desafio PrideSec FIAP 2021 (WebCrawler para detecção de credenciais vazadas)
-- 2º lugar — Global Solution FIAP 2021 (CTF multi-cenário)
+- 1º lugar: Desafio Banco Carrefour FIAP 2022 (MISP na nuvem com coleta de IoC)
+- 1º lugar: CTF NEXT FIAP 2022 (competição de defesa cibernética)
+- 2º lugar: Desafio PrideSec FIAP 2021 (WebCrawler para detecção de credenciais vazadas)
+- 2º lugar: Global Solution FIAP 2021 (CTF multi-cenário)
 
 ## Contato e links
 

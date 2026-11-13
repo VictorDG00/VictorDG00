@@ -18,7 +18,7 @@ I build backend systems in Python/FastAPI and run the Linux, Kubernetes and CI/C
 ## Invariant Security
 <sub><code>MAIN PROJECT · OWN PRODUCT</code></sub>
 
-**CIS Benchmark assessment for Linux hosts** (and Docker containers on-prem). Point it at an IP or CIDR range: it discovers and classifies hosts, runs ~200 CIS checks over SSH, and returns PASS/FAIL per control **with the evidence behind each result**, exportable as a PDF report. It runs as SaaS and as an on-prem appliance (`.deb` + systemd) that ships the same services. A central licensing service is in progress: Ed25519-signed licenses, and the appliance will only ever send HMAC-hashed host identifiers, never assessment data.
+**CIS Benchmark assessment for Linux hosts** (and Docker containers on-prem). It runs ~200 CIS checks over SSH and returns PASS/FAIL per control **with the evidence behind each result**, exportable as a PDF report. Targets can be added by IP or found from a CIDR range. It runs as SaaS and as an on-prem appliance (`.deb` + systemd) that ships the same services. A central licensing service is in progress: Ed25519-signed licenses, and the appliance will only ever send HMAC-hashed host identifiers, never assessment data.
 
 I designed, built and operate the whole thing: code, pipelines and the cluster it runs on.
 
@@ -56,8 +56,12 @@ Public repos: [assessment](https://github.com/Invariant-Security/invariant_asses
 ## Background
 
 - **Invariant Security**, Founder & Security/Platform Engineer *(2026 – present)*
+- **Mares Comercial**, E-commerce Analyst: automation of internal e-commerce processes and systems support *(2025 – 2026)*
+- **Foundever**, Bilingual Customer Service Analyst: technical and bilingual incident support *(2024 – 2025)*
 - **Dfense Security**, Systems Analyst: security automation (Python/Shell) integrating CyberArk, Gigamon and Netskope; AWS assessments *(2022 – 2023)*
 - **T-Systems**, SOC L1 intern: incident monitoring, LGPD and crypto controls *(2022)*
+- **Flipside**, IT intern: users, assets and access management; Python automations with REST APIs *(2021 – 2022)*
+- **Stefanini**, IT Support Analyst (L1/L2): SAP, TOTVS, Citrix and Windows Server *(2019 – 2020)*
 - **FIAP**, Cyber Defense (1st place at CTF NEXT 2022 and the Banco Carrefour challenge) · **ENIAC**, Systems Analysis & Development
 - Cisco CyberOps Associate · AWS Certified Cloud Practitioner
 
